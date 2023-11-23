@@ -6,7 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 // Importamos los ficheros de conexion
 import es.unizar.sisinf.grpB02.RRank.db.ConnectionManager;
@@ -187,6 +189,58 @@ public class PersonaDAO {
     	}
     	 return pers; //Error, no encontrada
     }
+    
+    public Set<PersonaVO> buscarEscritores(String nom){
+    	Set<PersonaVO> personasSet = new HashSet<>();
+    	Connection conn = null;
+    	 try {
+            	// Establecemos la conexión
+     	    conn = PoolConnectionManager.getConnection();
+     	    if (conn == null) {
+     	        return null;
+     	    }
+         	String queryEscritores = "SELECT *\n"
+         			+ "FROM persona\n"
+         			+ "WHERE nombreUsuario = ? IN (SELECT nombreUsuario FROM escribe)\n"
+         			+ "   OR nombreCompleto = ? IN (SELECT nombreUsuario FROM escribe);\n";
+        	PreparedStatement escritoresStmt = conn.prepareStatement(queryEscritores);
+        	escritoresStmt.setString(1, nom);
+     	 	escritoresStmt.setString(2, nom);
+         	ResultSet nombreUsuarioResultSet = escritoresStmt.executeQuery();
+
+	        while (nombreUsuarioResultSet.next()) {
+	            String nombreUsuario = nombreUsuarioResultSet.getString("nombreUsuario");
+	            String DNI = nombreUsuarioResultSet.getString("DNI");
+	            String nombreCompleto = nombreUsuarioResultSet.getString("nombreCompleto");
+	            String contraseña = nombreUsuarioResultSet.getString("contraseña");
+	            String correoE = nombreUsuarioResultSet.getString("correoE");
+	            int puntosLectura = nombreUsuarioResultSet.getInt("puntosLectura");
+	            int seguidores = nombreUsuarioResultSet.getInt("seguidores");
+	
+	            // Crear un objeto PersonaVO
+	            PersonaVO persona = new PersonaVO(nombreUsuario, DNI, nombreCompleto, contraseña, correoE);
+	            persona.setPuntosLectura(puntosLectura);
+	            persona.setSeguidores(seguidores);
+	
+	            // Agregar a la lista, Set se encargará de no permitir duplicados
+	            personasSet.add(persona);
+	        }
+    	 } catch (SQLException e) {
+     	    // Manejar la excepción de SQL según tus necesidades
+     	    e.printStackTrace();
+     	} finally {
+     	    // Asegurarse de cerrar la conexión en el bloque 'finally'
+     	    try {
+     	        if (conn != null) {
+     	            conn.close();
+     	        }
+     	    } catch (SQLException e) {
+     	        // Manejar la excepción de cierre de conexión según tus necesidades
+     	        e.printStackTrace();
+     	    }
+     	}
+    	 return personasSet;
+   }
 }
 
 

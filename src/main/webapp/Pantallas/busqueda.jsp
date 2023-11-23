@@ -130,6 +130,8 @@
 		
     </style>
   </head>
+   <title>Busqueda en ReaderRank</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>    
   <body>
   	
 	<div class = "container">
