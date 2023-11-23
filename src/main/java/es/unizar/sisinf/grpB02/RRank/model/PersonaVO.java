@@ -3,14 +3,12 @@ package es.unizar.sisinf.grpB02.RRank.model;
 //Imports
 
 /**
- * Interfaz de Persona
- */
+* Interfaz de Persona
+*/
 
 public class PersonaVO {
 	// Datos (en privado)
 	private String nombreUsuario;
-	private String DNI;
-	private String nombreCompleto;
 	private String contraseña;
 	private String correoE;
 	private int puntosLectura;
@@ -19,15 +17,11 @@ public class PersonaVO {
 	/**
 	 * Constructor
 	 * @param nombreUsuario;
-	 * @param DNI;
-	 * @param nombreCompleto;
 	 * @param contraseña;
 	 * @paramg correoE;
 	 */
-	public PersonaVO (String nombreUsuario, String DNI, String nombreCompleto, String contraseña, String correoE) {
+	public PersonaVO (String nombreUsuario, String contraseña, String correoE) {
 		this.nombreUsuario = nombreUsuario;
-		this.DNI = DNI;
-		this.nombreCompleto = nombreCompleto;
 		this.contraseña = contraseña;
 		this.correoE =correoE;
 		this.puntosLectura = 0;
@@ -35,8 +29,6 @@ public class PersonaVO {
 	}
 	public PersonaVO () {
 		this.nombreUsuario = null;
-		this.DNI = null;
-		this.nombreCompleto = null;
 		this.contraseña = null;
 		this.correoE =null;
 		this.puntosLectura = 0;
@@ -45,60 +37,44 @@ public class PersonaVO {
 
 
 	   // Métodos 'get' y 'set' para cada atributo
-    public String getNombreUsuario() {
-        return nombreUsuario;
-    }
+  public String getNombreUsuario() {
+      return nombreUsuario;
+  }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
-    }
+  public void setNombreUsuario(String nombreUsuario) {
+      this.nombreUsuario = nombreUsuario;
+  }
 
-    public String getDNI() {
-        return DNI;
-    }
+  public String getContraseña() {
+      return contraseña;
+  }
 
-    public void setDNI(String DNI) {
-        this.DNI = DNI;
-    }
+  public void setContraseña(String contraseña) {
+      this.contraseña = contraseña;
+  }
 
-    public String getNombreCompleto() {
-        return nombreCompleto;
-    }
+  public String getCorreoE() {
+      return correoE;
+  }
 
-    public void setNombreCompleto(String nombreCompleto) {
-        this.nombreCompleto = nombreCompleto;
-    }
+  public void setCorreoE(String correoE) {
+      this.correoE = correoE;
+  }
 
-    public String getContraseña() {
-        return contraseña;
-    }
+  public int getPuntosLectura() {
+      return puntosLectura;
+  }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
-    }
+  public void setPuntosLectura(int puntosLectura) {
+      this.puntosLectura = puntosLectura;
+  }
 
-    public String getCorreoE() {
-        return correoE;
-    }
+  public int getSeguidores() {
+      return seguidores;
+  }
 
-    public void setCorreoE(String correoE) {
-        this.correoE = correoE;
-    }
-
-    public int getPuntosLectura() {
-        return puntosLectura;
-    }
-
-    public void setPuntosLectura(int puntosLectura) {
-        this.puntosLectura = puntosLectura;
-    }
-
-    public int getSeguidores() {
-        return seguidores;
-    }
-
-    public void setSeguidores(int seguidores) {
-        this.seguidores = seguidores;
-    }
+  public void setSeguidores(int seguidores) {
+      this.seguidores = seguidores;
+  }
 
 }

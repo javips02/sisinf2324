@@ -57,7 +57,7 @@
   	
 	<div class = "container">
         <p class="titulo">ReaderRank</p>
-        <p class="texto">NO HEMOS PODIDO CREAR TU CUENTA</p>
+        <p class="texto">LOS CAMPOS NO PUEDEN ESTAR VACÍOS</p>
         <img src="img/error.png" alt="" class="tick">
             	
         <a href="crear_cuenta.jsp">

@@ -57,11 +57,11 @@
   	
 	<div class = "container">
         <p class="titulo">ReaderRank</p>
-        <p class="texto">NO HEMOS PODIDO CREAR TU CUENTA</p>
+        <p class="texto">LA CUENTA A LA QUE SE INTENTA ACCEDER NO EXISTE</p>
         <img src="img/error.png" alt="" class="tick">
             	
-        <a href="crear_cuenta.jsp">
-  			<button class="boton-personalizado">VOLVER</button>
+        <a href="menu_principal.jsp">
+  			<button class="boton-personalizado">MENÚ PRINCIPAL</button>
 		</a>			
 	</div>
   </body>

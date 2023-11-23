@@ -9,7 +9,7 @@ public class EscritorFacade {
 		
 		public EscritorFacade() {
 			funcionesPersona = new PersonaDAO() ;
-			persona = new PersonaVO(null, null, null, null, null) ;
+			persona = new PersonaVO(null, null, null) ;
 		}
 		
 		//Métodos

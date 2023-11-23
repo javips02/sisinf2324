@@ -23,15 +23,13 @@ public class CrearCuentaServlet extends HttpServlet {
         String hola="Soy javi";
         String correoElectronico = request.getParameter("correoElectronico");
         String contrasena = request.getParameter("contrasena");
-        String confirContrasena = request.getParameter("reTypePass");
+        String confirContrasena = request.getParameter("confirContrasena");
 
         // Validar que los campos no estén vacíos
         if (usuario != null && correoElectronico != null && !usuario.isEmpty() && !correoElectronico.isEmpty() && contrasena != null && confirContrasena != null && !contrasena.isEmpty() && !confirContrasena.isEmpty()) {
             // Crear un nuevo usuario
-        	PersonaVO persona = new PersonaVO(usuario, "prueba", "prueba", contrasena, correoElectronico);
+        	PersonaVO persona = new PersonaVO(usuario, contrasena, correoElectronico);
         	persona.setNombreUsuario(usuario);
-        	persona.setDNI("prueba");
-        	persona.setNombreCompleto("prueba");
         	persona.setCorreoE(correoElectronico);
         	persona.setContraseña(contrasena);
 

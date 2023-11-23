@@ -9,9 +9,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-// Importamos los ficheros de conexion
-import es.unizar.sisinf.grpB02.RRank.db.ConnectionManager;
 import es.unizar.sisinf.grpB02.RRank.db.PoolConnectionManager;
 
 // Clase DAO para la gestión de personas
@@ -31,12 +28,6 @@ public class PersonaDAO {
         	String queryNombreUsuario = "SELECT * FROM persona WHERE nombreusuario = ? AND contraseña = ?";
        	 	PreparedStatement nombreUsuarioStmt = conn.prepareStatement(queryNombreUsuario);
 //    	    String queryNombreUsuario = "SELECT * FROM Persona WHERE (nombreusuario=? OR correoe=?) AND contraseña=?";
-
-    	 // Imprimir la query y parámetros
-//    	 System.out.println("Query: " + queryNombreUsuario);
-//    	 System.out.println("Parámetro 1: " + pers.getNombreUsuario());
-//    	 System.out.println("Parámetro 2: " + pers.getCorreoE());
-//    	 System.out.println("Parámetro 3: " + pers.getContraseña());
 
 
        	 	nombreUsuarioStmt.setString(1, login);
@@ -109,28 +100,26 @@ public class PersonaDAO {
 		Connection conn = null;
 
         try {
-	        if(!existePersona(pers)) {
-
+	       
+        	System.out.println("---- 1 ----");
 	     	    // Establecemos la conexión
 		        conn = PoolConnectionManager.getConnection();
 
     		    // Ejecutamos la sentencia de insertar SQL
-    		    String insertar = "INSERT INTO Persona (nombreUsuario, DNI, nombreCompleto, contraseña, correoE, puntosLectura, seguidores) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    		    String insertar = "INSERT INTO Persona (nombreUsuario, contraseña, correoE, puntosLectura, seguidores) VALUES (?, ?, ?, ?, ?)";
     		    PreparedStatement anyadirEst = conn.prepareStatement(insertar);
 
     		    // Añadimos todos los campos de la tabla Usuario
     		    anyadirEst.setString(1, pers.getNombreUsuario());
-    		    anyadirEst.setString(2, pers.getDNI());
-    		    anyadirEst.setString(3, pers.getNombreCompleto());
-    		    anyadirEst.setString(4, pers.getContraseña());
-    		    anyadirEst.setString(5, pers.getCorreoE());
-    		    anyadirEst.setInt(6, pers.getPuntosLectura());
-    		    anyadirEst.setInt(7, pers.getSeguidores());
+    		    anyadirEst.setString(2, pers.getContraseña());
+    		    anyadirEst.setString(3, pers.getCorreoE());
+    		    anyadirEst.setInt(4, pers.getPuntosLectura());
+    		    anyadirEst.setInt(5, pers.getSeguidores());
 
     		    anyadirEst.executeUpdate();  // Lo actualizamos
     		    anyadirEst.close(); // Cerramos conex
 
-	        }
+	        
 		} catch (SQLException sqlE) {
 			System.out.printf("Error en la base\n");
 		    sqlE.printStackTrace();
@@ -143,11 +132,11 @@ public class PersonaDAO {
 		    PoolConnectionManager.releaseConnection(conn);
 		}
 
-	    return existePersona(pers); //Que compruebe que se ha anadidio abriendo una conexion a la BD. Si la encuentra, true, sino false (se podria hacer toa la funcion con una sola conexion?
+	    return true; //Que compruebe que se ha anadidio abriendo una conexion a la BD. Si la encuentra, true, sino false (se podria hacer toa la funcion con una sola conexion?
     }
 
     public PersonaVO getPersona(String nombre) throws SQLException {
-    	PersonaVO pers = new PersonaVO(nombre,null, null, null, null);
+    	PersonaVO pers = new PersonaVO(nombre,null,null);
     	if (existePersona(pers)) {
     		Connection conn = null;
             List<PersonaVO> personas = new ArrayList<>();
@@ -166,8 +155,6 @@ public class PersonaDAO {
                     // Si hay resultados, crear un objeto PersonaVO y agregarlo a la lista
                     PersonaVO persona = new PersonaVO();
                     persona.setNombreUsuario(nombreUsuarioResultSet.getString("nombreUsuario"));
-                    persona.setDNI(nombreUsuarioResultSet.getString("DNI"));
-                    persona.setNombreCompleto(nombreUsuarioResultSet.getString("nombreCompleto"));
                     persona.setContraseña(nombreUsuarioResultSet.getString("contraseña"));
                     persona.setCorreoE(nombreUsuarioResultSet.getString("correoE"));
                     persona.setPuntosLectura(nombreUsuarioResultSet.getInt("puntosLectura"));
@@ -201,24 +188,20 @@ public class PersonaDAO {
      	    }
          	String queryEscritores = "SELECT *\n"
          			+ "FROM persona\n"
-         			+ "WHERE nombreUsuario = ? IN (SELECT nombreUsuario FROM escribe)\n"
-         			+ "   OR nombreCompleto = ? IN (SELECT nombreUsuario FROM escribe);\n";
+         			+ "WHERE nombreUsuario = ? IN (SELECT nombreUsuario FROM escribe);\n";
         	PreparedStatement escritoresStmt = conn.prepareStatement(queryEscritores);
         	escritoresStmt.setString(1, nom);
-     	 	escritoresStmt.setString(2, nom);
          	ResultSet nombreUsuarioResultSet = escritoresStmt.executeQuery();
 
 	        while (nombreUsuarioResultSet.next()) {
 	            String nombreUsuario = nombreUsuarioResultSet.getString("nombreUsuario");
-	            String DNI = nombreUsuarioResultSet.getString("DNI");
-	            String nombreCompleto = nombreUsuarioResultSet.getString("nombreCompleto");
 	            String contraseña = nombreUsuarioResultSet.getString("contraseña");
 	            String correoE = nombreUsuarioResultSet.getString("correoE");
 	            int puntosLectura = nombreUsuarioResultSet.getInt("puntosLectura");
 	            int seguidores = nombreUsuarioResultSet.getInt("seguidores");
 	
 	            // Crear un objeto PersonaVO
-	            PersonaVO persona = new PersonaVO(nombreUsuario, DNI, nombreCompleto, contraseña, correoE);
+	            PersonaVO persona = new PersonaVO(nombreUsuario, contraseña, correoE);
 	            persona.setPuntosLectura(puntosLectura);
 	            persona.setSeguidores(seguidores);
 	
