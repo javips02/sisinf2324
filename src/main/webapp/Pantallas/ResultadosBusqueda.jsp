@@ -27,7 +27,7 @@
                 PersonaVO persona = (PersonaVO) elemento;
                 %>
                 <div>
-                    <p>Persona: <%= persona.getNombreCompleto() %></p>
+                    <p>Persona: <%= persona.getNombreUsuario() %></p>
                     <!-- Agrega más campos de la persona según sea necesario -->
                 </div>
                 <%
