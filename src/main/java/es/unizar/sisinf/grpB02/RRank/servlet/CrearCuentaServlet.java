@@ -20,6 +20,7 @@ public class CrearCuentaServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Obtener parámetros del formulario
         String usuario = request.getParameter("usuario");
+        String hola="Soy javi";
         String correoElectronico = request.getParameter("correoElectronico");
         String contrasena = request.getParameter("contrasena");
         String confirContrasena = request.getParameter("reTypePass");
