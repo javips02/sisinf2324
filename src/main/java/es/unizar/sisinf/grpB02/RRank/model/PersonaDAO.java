@@ -22,7 +22,7 @@ public class PersonaDAO {
 
         try {
            	// Establecemos la conexión
-    	    Connection conn = ConnectionManager.getConnection();
+    	    Connection conn = PoolConnectionManager.getConnection();
     	    if (conn == null) {
     	        return false;
     	    }
