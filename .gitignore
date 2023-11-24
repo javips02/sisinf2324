@@ -57,7 +57,7 @@ hs_err_pid*
 # IDE-specific files
 .settings/
 .classpath
-
+.project
 # Operating System files
 .DS_Store
 Thumbs.db
