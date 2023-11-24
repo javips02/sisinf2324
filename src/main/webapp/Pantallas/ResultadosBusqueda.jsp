@@ -37,9 +37,12 @@
             flex-grow: 1; /* Permite que el texto ocupe el espacio restante */
         }
         .imagen-libro {
-            max-width: 100px; /* Ajusta el tamaño máximo de la imagen según tus necesidades */
-            max-height: 100px; /* Ajusta la altura máxima según tus necesidades */
+            max-width: 1000px; /* Ajusta el tamaño máximo de la imagen según tus necesidades */
+            max-height: 1000px; /* Ajusta la altura máxima según tus necesidades */
             margin-left: 20px; /* Ajusta el margen izquierdo según tus necesidades */
+            width: auto; /* Permite que el ancho se ajuste automáticamente al tamaño máximo */
+    		height: auto; /* Permite que la altura se ajuste automáticamente al tamaño máximo */
+            
         }
     </style>
 </head>
@@ -60,7 +63,7 @@
                         <p>Libro: <%= libro.getTitulo() %></p>
                         <!-- Agrega más campos del libro según sea necesario -->
                     </div>
-                    <img class="imagen-libro" src="<%= request.getContextPath() %>/img/<%= libro.getNombreImagen() %>" alt="Imagen del libro">
+                    <img class="imagen-libro" src="<%= request.getContextPath() %>img/<%= libro.getNombreImagen() %>" alt="Imagen del libro">
                 </div>
                 <%
             } else if (elemento instanceof PersonaVO) {

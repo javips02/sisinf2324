@@ -57,14 +57,16 @@ public class LibroDAO {
 		        conn = ConnectionManager.getConnection();
 
     		    // Ejecutamos la sentencia de insertar SQL
-    		    String insertar = "INSERT INTO Libro (ISBN, titulo, nombreImagen, numLectores) VALUES (?, ?, ?, 0)";
+    		    String insertar = "INSERT INTO Libro (ISBN, titulo, nombreImagen, numLectores) VALUES (?, ?, ?, ?, ?, ?)";
     		    PreparedStatement anyadirEst = conn.prepareStatement(insertar);
-
+    		  //ISBN, titulo, desc, nombreImagen, editorial, autor
     		    // Añadimos todos los campos de la tabla Usuario
     		    anyadirEst.setString(1, lib.getISBN());
     		    anyadirEst.setString(2, lib.getTitulo());
-    		    anyadirEst.setString(3, lib.getNombreImagen());
-    		    anyadirEst.setInt(4, lib.getNumLectores());
+    		    anyadirEst.setString(3, lib.getDesc());
+    		    anyadirEst.setString(4, lib.getNombreImagen());
+    		    anyadirEst.setString(5, lib.getEditorial());
+    		    anyadirEst.setString(6, lib.getAutor());
 
     		    // Lo actualizamos
     		    anyadirEst.executeUpdate();
@@ -92,20 +94,23 @@ public class LibroDAO {
     	    }
 
     	    // Realizar la consulta
-    	    String queryTituloLibro = "SELECT * FROM libro WHERE titulo = ?"; //TODO cambiar por un LIKE si funciona con un =
+    	    String queryTituloLibro = "SELECT * FROM libro WHERE titulo = ? ;\n"; //TODO cambiar por un LIKE si funciona con un =
     	    PreparedStatement busLibroStmt = conn.prepareStatement(queryTituloLibro);
     	    busLibroStmt.setString(1, tit);
     	    ResultSet nombreUsuarioResultSet = busLibroStmt.executeQuery();
 
     	    // Iterar a través de los resultados y agregar a la lista
     	    while (nombreUsuarioResultSet.next()) {
-    	        String ISBN = nombreUsuarioResultSet.getString("ISBN");
+    	        String ISBN = nombreUsuarioResultSet.getString("isbn");
     	        String titulo = nombreUsuarioResultSet.getString("titulo");
-    	        String nombreImagen = nombreUsuarioResultSet.getString("nombreImagen");
-    	        int numLectores = nombreUsuarioResultSet.getInt("numLectores");
+    	        String desc = nombreUsuarioResultSet.getString("descripcion");
+    	        String nombreImagen = nombreUsuarioResultSet.getString("nombreimagen");
+    	        String editorial = nombreUsuarioResultSet.getString("editorial");
+    	        String autor = nombreUsuarioResultSet.getString("autor");
+    	        
 
     	        // Crear un objeto LibroVO y agregarlo a la lista
-    	        LibroVO libro = new LibroVO(ISBN, titulo, nombreImagen, numLectores);
+    	        LibroVO libro = new LibroVO(ISBN, titulo, desc, nombreImagen, editorial, autor);
     	        resultList.add(libro);
     	    }
     	} catch (SQLException e) {

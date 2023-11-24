@@ -217,7 +217,7 @@ public class PersonaDAO {
 		        }
 		       
          	}
-         	 personasSet.add(new PersonaVO("Checkpoint PersonaDAO", "hellegao", "hellegao"));
+//         	 personasSet.add(new PersonaVO("Checkpoint PersonaDAO", "hellegao", "hellegao"));
     	 } catch (SQLException e) {
      	    // Manejar la excepción de SQL según tus necesidades
      	    e.printStackTrace();

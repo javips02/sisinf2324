@@ -144,7 +144,7 @@
 			String valorCampo = request.getParameter("busqueda");
 		%>
     <form method="get" action="${pageContext.request.contextPath}/busquedaServlet" >
-        <input type="text" class="campo1" placeholder="¿QUÉ ESTÁ BUSCANDO?" name="searchTerm" required>   
+        <input type="text" class="campo1" placeholder="¿QUÉ ESTÁ BUSCANDO?" name="busqueda" required>   
         <!-- <button type="submit">Buscar</button> -->
     </form>
      <p class="linea-blanca"></p>
