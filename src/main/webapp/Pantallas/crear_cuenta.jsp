@@ -147,7 +147,7 @@
 			  <button  class="botones" id="iniciar-sesion">INICIAR SESIÓN</button>
 			  <button class="botones with-border" id="crear-cuenta">CREAR CUENTA</button>
 			</div>
-			<form action="Servlets/CrearCuentaServlet" method="POST">
+			<form action="${pageContext.request.contextPath}/CrearCuentaServlet" method="post">
 				<p><input type="text" class="campo1" name="usuario" placeholder="Usuario"></p>
     			<p><input type="text" class="campo1" name="correoElectronico" placeholder="Correo electrónico"></p>
     			<p><input type="password" class="campo1" name="contrasena" placeholder="Contraseña"></p>
@@ -183,39 +183,6 @@
 	  document.getElementById("iniciar-sesion").addEventListener("click", function() {
 	    window.location.href = "iniciar_sesion.jsp"; // Reemplaza "tu_pagina_destino.jsp" con la URL de la página a la que deseas dirigir al usuario.
 	  });
-	</script>
-	<script>
-	function crearCuenta() {
-		console.log("Creando cuenta...");
-	    var usuario = document.getElementById("usuarioLogin").value;
-	    var contrasena = document.getElementById("contrasenaLogin").value;
-	    var correo = document.getElementById("Correo").value;
-	    var ccontrasena = document.getElementById("CContraseña").value;
-	    console.log("Usuario:", usuario);
-	    console.log("Contraseña:", contrasena);
-	    console.log("Correo:", correo);
-	    console.log("CContraseña:", ccontrasena);
-
-	    // Realizar la solicitud AJAX
-	    $.ajax({
-	        type: "POST",
-	        url: "/CrearCuentaServlet",
-	        data: {
-	            usuario: usuario,
-	            contrasena: contrasena
-	        },
-	        success: function(response) {
-	            // No necesitas realizar acciones adicionales en el cliente
-	            // ya que las redirecciones se manejan en el servidor
-	        },
-	        error: function(error) {
-	            console.error("Error en la solicitud AJAX", error);
-	            alert("Error en la creaación de cuenta. Por favor, intenta nuevamente.");
-	         	// Redirigir en caso de error
-	            window.location.href = "Error.html";
-	        }
-	    });
-	}
 	</script>
   </body>
 </html>

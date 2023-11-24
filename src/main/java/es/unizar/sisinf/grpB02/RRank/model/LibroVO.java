@@ -2,10 +2,7 @@ package es.unizar.sisinf.grpB02.RRank.model;
 
 public class LibroVO {
     // Datos (en privado)
-    private String ISBN;
-    private String titulo;
-    private String nombreImagen;
-    private int numLectores;
+    private String ISBN, titulo, desc, nombreImagen, editorial, autor;
 
     /**
      * Constructor
@@ -14,14 +11,41 @@ public class LibroVO {
      * @param nombreImagen El nombre de la imagen del libro.
      * @param numLectores El número de lectores del libro.
      */
-    public LibroVO(String ISBN, String titulo, String nombreImagen, int numLectores) {
-        this.ISBN = ISBN;
-        this.titulo = titulo;
-        this.nombreImagen = nombreImagen;
-        this.numLectores = numLectores;
+    public LibroVO(String _ISBN, String _titulo, String _descripcion, String _nombreImagen, String _editorial, String _autor) {
+    	//ISBN, titulo, desc, nombreImagen, editorial, autor
+    	ISBN=_ISBN;
+    	titulo=_titulo;
+    	desc= _descripcion;
+    	nombreImagen=_nombreImagen;
+    	editorial=_editorial;
+    	autor = _autor ;
     }
 
-    // Métodos 'get' y 'set' para el atributo 'ISBN'
+    public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
+	public String getEditorial() {
+		return editorial;
+	}
+
+	public void setEditorial(String editorial) {
+		this.editorial = editorial;
+	}
+
+	public String getAutor() {
+		return autor;
+	}
+
+	public void setAutor(String autor) {
+		this.autor = autor;
+	}
+
+	// Métodos 'get' y 'set' para el atributo 'ISBN'
     public String getISBN() {
         return ISBN;
     }
@@ -46,14 +70,5 @@ public class LibroVO {
 
     public void setNombreImagen(String nombreImagen) {
         this.nombreImagen = nombreImagen;
-    }
-
-    // Métodos 'get' y 'set' para el atributo 'numLectores'
-    public int getNumLectores() {
-        return numLectores;
-    }
-
-    public void setNumLectores(int numLectores) {
-        this.numLectores = numLectores;
     }
 }

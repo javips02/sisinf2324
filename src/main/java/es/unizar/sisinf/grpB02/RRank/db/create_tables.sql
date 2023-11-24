@@ -1,11 +1,11 @@
 CREATE TABLE persona (
    	 nombreUsuario     	varchar(30) PRIMARY KEY,
-   	 DNI    	 		varchar(9) UNIQUE,
    	 nombreCompleto     varchar(40),
    	 contraseña     	varchar(30),
    	 correoE    		varchar(40) UNIQUE,
    	 puntosLectura    	integer,
-   	 seguidores     	integer
+   	 seguidores     	integer,
+   	 descripcionEscritor varchar(300)
 );
 
 CREATE TABLE editorial (

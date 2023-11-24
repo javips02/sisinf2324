@@ -130,6 +130,8 @@
 		
     </style>
   </head>
+   <title>Busqueda en ReaderRank</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>    
   <body>
   	
 	<div class = "container">
@@ -141,9 +143,11 @@
 		<%
 			String valorCampo = request.getParameter("busqueda");
 		%>
-<%--     	<input type="text" class="campo1" id="searchInput" onkeyup="searchFunction()" placeholder="¿QUÉ ESTÁ BUSCANDO?" value="<%= valorCampo != null ? valorCampo : "" %>"> --%>
-    	<input type="text" class="campo1" placeholder="¿QUÉ ESTÁ BUSCANDO?" oninput="realizarBusqueda(this.value)" value="<%= valorCampo != null ? valorCampo : "" %>">
-    	<p class="linea-blanca"></p>
+    <form method="get" action="${pageContext.request.contextPath}/busquedaServlet" >
+        <input type="text" class="campo1" placeholder="¿QUÉ ESTÁ BUSCANDO?" name="busqueda" required>   
+        <!-- <button type="submit">Buscar</button> -->
+    </form>
+     <p class="linea-blanca"></p>
     	<div class="texto" id="searchResults"></div>
     	<!-- <div class="lupa">
     		 <img src="u27.svg">

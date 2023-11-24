@@ -19,7 +19,6 @@
         .bienvenida{
             position: relative;
             text-align: center;
-            margin-top: 100px;
             font-family: 'Bodoni MT Poster Compressed';
             font-size: 90px;
             color: white;
@@ -27,8 +26,8 @@
         }
         .texto{
         	position: relative;
-         	margin-left: 200px; 
-     		margin-right: 200px;  
+         	margin-left: 10%; 
+     		margin-right: 10%;  
         	text-align: center;
         	text-align: justify;
             font-family: 'Poppins SemiBold';
@@ -62,8 +61,8 @@
         }
         .tresRayas{
             cursor: pointer;
-            margin-left: 70px;
-            margin-right: 595px;
+            margin-left: 3%;
+            margin-right: 25%;
             width: 7%;
             height: 13%;
             filter: brightness(100%); /* Configura el brillo al 0% para que la imagen se vea completamente blanca */

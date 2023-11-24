@@ -10,7 +10,7 @@ public class UsuarioFacade {
 	//Constructor
 	public UsuarioFacade () {
 		funcionesPersona = new PersonaDAO() ;
-		persona = new PersonaVO(null, null, null, null, null) ;
+		persona = new PersonaVO(null, null, null) ;
 	}
 
 	//Métodos
@@ -26,7 +26,7 @@ public class UsuarioFacade {
 
 	public Boolean crearCuenta (String _usuario, String _dni, String _nc, String _contraseña, String _correo) {
 		try {
-			PersonaVO persona = new PersonaVO(_usuario, "prueba", "prueba", _contraseña, _correo);
+			PersonaVO persona = new PersonaVO(_usuario, _contraseña, _correo);
 			return funcionesPersona.crearPersona(persona);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
