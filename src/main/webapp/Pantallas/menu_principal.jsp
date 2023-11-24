@@ -8,7 +8,7 @@
             margin: 0;
         }
         .titulo{
-            margin-right: 4%;
+            margin-right: 0%;
             margin-left: 0%;
             position: relative;
             text-align: center;
@@ -36,7 +36,7 @@
             height: 100vh;
             background-repeat: no-repeat;
             background-size: cover;
-            background-image: url('img/u22.png');
+            background-image: url('Pantallas/img/u22.png');
         }
         /* Pseudoelemento para aplicar el filtro */
         .container::before {
@@ -54,7 +54,7 @@
             color: #fff; /* Color de texto blanco */
             border: none; /* Sin borde */
             border-radius: 50px; /* Esquinas redondeadas */
-            padding: 10px 200px; /* Relleno interno para el botón */
+            padding: 10px 20px; /* Relleno interno para el botón */
             font-size: 35px; /* Tamaño de fuente */
             font-family: 'Poppins SemiBold';
             cursor: pointer; /* Cambia el cursor al pasar el ratón */
@@ -68,7 +68,7 @@
         .tresRayas{
             cursor: pointer;
             margin-left: 5%;
-            margin-right: 30%;
+            margin-right: 20%;
             width: 7%;
             height: 13%;
             filter: brightness(100%); /* Configura el brillo al 0% para que la imagen se vea completamente blanca */
@@ -89,6 +89,7 @@
         }
         .lupa{
             width: 3%;
+            
             height: 15%;
             filter: brightness(100%); /* Configura el brillo al 0% para que la imagen se vea completamente blanca */
         }
@@ -98,7 +99,7 @@
             align-items: center;
         }
         .campo1 {
-            margin-left: 10px;
+            margin-left: 20%;
             margin-top: -10px;
             position: relative;
             background: transparent;
@@ -108,7 +109,7 @@
             padding: 5px 20px; /* Relleno interno para ajustar el ancho */
             font-size: 35px; /* Tamaño de fuente */
             font-family: 'Poppins SemiBold';
-            width: 60%; 
+            width: 10%; 
         }
         .campo1::placeholder {
             color: white; /* Color blanco para el texto del placeholder */
@@ -226,14 +227,14 @@
   <body>
    <div id="menu" class="menu-lateral">
    		<div class="contenedor_flecha">
-	        <img src="Pantallas/img/u36.svg" alt="" class="flecha" onclick="cerrarMenu()">
+	        <img src="${pageContext.request.contextPath}/Pantallas/img/u36.svg" alt="" class="flecha" onclick="cerrarMenu()">
 	    </div>
 	    <nav class="nav">
 	    	<ul>
 	    		<li>
 	    			<div class="list_button list_button--click">
 	    				<a href="#">IMPRESCINDIBLES</a>
-	    				<img src="Pantallas/img/bx-chevron-right.svg" class="list_arrow">
+	    				<img src="${pageContext.request.contextPath}/Pantallas/img/bx-chevron-right.svg" class="list_arrow">
 	    			</div>
 	    			<ul class="list_show">
     				<li class="list_inside">
@@ -253,7 +254,7 @@
 	    		<li>
 	    			<div class="list_button list_button--click">
 	    				<a href="#">GÉNEROS</a>
-	    				<img src="img/bx-chevron-right.svg" class="list_arrow">
+	    				<img src="${pageContext.request.contextPath}/Pantallas/img/bx-chevron-right.svg" class="list_arrow">
 	    			</div>
 	    			<ul class="list_show">
 	    				<li class="list_inside">
@@ -276,7 +277,7 @@
 	    		<li>
 	    			<div class="list_button list_button--click">
 	    				<a href="#">NOVEDADES</a>
-	    				<img src="img/bx-chevron-right.svg" class="list_arrow">
+	    				<img src="${pageContext.request.contextPath}/Pantallas/img/bx-chevron-right.svg" class="list_arrow">
 	    			</div>
 	    			<ul class="list_show">
 	    				<li class="list_inside">
@@ -296,7 +297,7 @@
 	    		<li>
 	    			<div class="list_button list_button--click">
 	    				<a href="#">RANKING</a>
-	    				<img src="img/bx-chevron-right.svg" class="list_arrow">
+	    				<img src="${pageContext.request.contextPath}/Pantallas/img/bx-chevron-right.svg" class="list_arrow">
 	    			</div>
 	    			<ul class="list_show">
 	    				<li class="list_inside">
@@ -318,11 +319,11 @@
 	</div>
     <div class="container">
         <div class="fila">
-            <img src="Pantallas/img/u24.svg" alt="" class="tresRayas" onclick="abrirMenu()">
+            <img src="${pageContext.request.contextPath}/Pantallas/img/u24.svg" alt="" class="tresRayas" onclick="abrirMenu()">
             <p class="titulo">ReaderRank</p>
-            <img src="Pantallas/img/u27.svg" alt="" id="miCampo2" class="lupa">
+            <img src="${pageContext.request.contextPath}/Pantallas/img/u27.svg" alt="" id="miCampo2" class="lupa">
             <input type="text" class="campo1" id="miCampo" placeholder="BUSCAR">   
-            <img src="Pantallas/img/bx-male.svg" alt="" class="persona" onclick="irPerfil()">
+            <img src="${pageContext.request.contextPath}/Pantallas/img/bx-male.svg" alt="" class="persona" onclick="irPerfil()">
         </div>
             
         <div class="bienvenida">

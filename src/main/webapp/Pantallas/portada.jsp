@@ -72,7 +72,7 @@
             text-align: center;
             justify-content: center; 
             padding: 10px 20px; /* Relleno interno para ajustar el ancho */
-            margin-top: 10px;
+            margin-top: 13%;
         }
         /* Cambio de color al pasar el ratón por encima */
         .boton-personalizado:hover {
@@ -151,16 +151,8 @@
 			<div class="titulo">
 	    		<p>ReaderRank</p>
 			</div>
-			<div class="texto">
-	    		<p>País / Country</p>
-	    	</div>
-    		<input type="text" class="campo1" placeholder="Escribe aquí">
-    		<div class = "texto">
-    			<p>Ciudad / City</p>
-    		</div>
-    		<input type="text" class="campo1" placeholder="Escribe aquí">
     		<a href="crear_cuenta.jsp">
-  				<button class="boton-personalizado">ACCEDER</button>
+  				<button class="boton-personalizado">¡ADÉNTRATE EN NUESTRO MUNDO!</button>
 			</a>
     		<div class = "cuadroRedes">
     			<div class="textoRedes">
