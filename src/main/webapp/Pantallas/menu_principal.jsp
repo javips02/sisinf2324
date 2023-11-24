@@ -226,14 +226,14 @@
   <body>
    <div id="menu" class="menu-lateral">
    		<div class="contenedor_flecha">
-	        <img src="img/u36.svg" alt="" class="flecha" onclick="cerrarMenu()">
+	        <img src="Pantallas/img/u36.svg" alt="" class="flecha" onclick="cerrarMenu()">
 	    </div>
 	    <nav class="nav">
 	    	<ul>
 	    		<li>
 	    			<div class="list_button list_button--click">
 	    				<a href="#">IMPRESCINDIBLES</a>
-	    				<img src="img/bx-chevron-right.svg" class="list_arrow">
+	    				<img src="Pantallas/img/bx-chevron-right.svg" class="list_arrow">
 	    			</div>
 	    			<ul class="list_show">
     				<li class="list_inside">
@@ -318,11 +318,11 @@
 	</div>
     <div class="container">
         <div class="fila">
-            <img src="img/u24.svg" alt="" class="tresRayas" onclick="abrirMenu()">
+            <img src="Pantallas/img/u24.svg" alt="" class="tresRayas" onclick="abrirMenu()">
             <p class="titulo">ReaderRank</p>
-            <img src="img/u27.svg" alt="" id="miCampo2" class="lupa">
+            <img src="Pantallas/img/u27.svg" alt="" id="miCampo2" class="lupa">
             <input type="text" class="campo1" id="miCampo" placeholder="BUSCAR">   
-            <img src="img/bx-male.svg" alt="" class="persona" onclick="irPerfil()">
+            <img src="Pantallas/img/bx-male.svg" alt="" class="persona" onclick="irPerfil()">
         </div>
             
         <div class="bienvenida">
@@ -367,27 +367,27 @@
 	    }
 
 	    function irPerfil() {
-	        window.location.href = 'perfil.jsp';
+	        window.location.href = 'Pantallas/perfil.jsp';
 	    }
 	    
 	    function irItem() {
-	        window.location.href = 'item_libro.jsp';
+	        window.location.href = 'Pantallas/perfil.jspitem_libro.jsp';
 	    }
 	    
 	    function irRankB() {
-	        window.location.href = 'rankingB.jsp';
+	        window.location.href = 'Pantallas/perfil.jsprankingB.jsp';
 	    }
 	    
 	    function irRankA() {
-	        window.location.href = 'rankingA.jsp';
+	        window.location.href = 'Pantallas/perfil.jsprankingA.jsp';
 	    }
 	    
 	    function irRankR() {
-	        window.location.href = 'rankingR.jsp';
+	        window.location.href = 'Pantallas/perfil.jsprankingR.jsp';
 	    }
 	    
 	    function irRankC() {
-	        window.location.href = 'rankingC.jsp';
+	        window.location.href = 'Pantallas/perfil.jsprankingC.jsp';
 	    }
 	    
     </script>

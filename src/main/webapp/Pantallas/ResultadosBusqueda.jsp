@@ -63,7 +63,7 @@
                         <p>Libro: <%= libro.getTitulo() %></p>
                         <!-- Agrega más campos del libro según sea necesario -->
                     </div>
-                    <img class="imagen-libro" src="<%= request.getContextPath() %>img/<%= libro.getNombreImagen() %>" alt="Imagen del libro">
+                    <img class="imagen-libro" src="img/${nombreImagen}" alt="Imagen del libro">
                 </div>
                 <%
             } else if (elemento instanceof PersonaVO) {

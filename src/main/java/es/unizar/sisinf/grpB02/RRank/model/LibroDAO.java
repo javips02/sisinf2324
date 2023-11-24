@@ -44,6 +44,45 @@ public class LibroDAO {
 		}
 	    return res;
     }
+    
+    public LibroVO mostrarLibro(String titulo) {
+        LibroVO libro = null;
+        LibroVO libroVacio = new LibroVO("","","","","","");
+        
+        try {
+            System.out.println("---- 1 ----");            // Establecemos la conexión
+            Connection conn = ConnectionManager.getConnection();
+            String consulta = "SELECT * FROM libro WHERE titulo = ?";
+            PreparedStatement nombreUsuarioStmt = conn.prepareStatement(consulta);
+
+            nombreUsuarioStmt.setString(1, titulo);
+            ResultSet nombreUsuarioResultSet = nombreUsuarioStmt.executeQuery();
+
+            if (nombreUsuarioResultSet.next()) {
+                // Crea un objeto LibroVO con los datos obtenidos de la base de datos
+                libro = new LibroVO(
+                    nombreUsuarioResultSet.getString("ISBN"),
+                    nombreUsuarioResultSet.getString("titulo"),
+                    nombreUsuarioResultSet.getString("descripcion"),
+                    nombreUsuarioResultSet.getString("nombreImagen"),
+                    nombreUsuarioResultSet.getString("editorial"),
+                    nombreUsuarioResultSet.getString("autor")
+                );
+            }
+
+            // Liberar recursos
+            nombreUsuarioStmt.close();
+            nombreUsuarioResultSet.close();
+            ConnectionManager.releaseConnection(conn);
+        } catch (SQLException sqlE) {
+            sqlE.printStackTrace();
+            return libroVacio;
+        } catch (Exception e) {
+            e.printStackTrace(System.err);
+            return libroVacio;
+        }
+        return libro != null ? libro : libroVacio;
+    }
 
     public boolean crearLibro(LibroVO lib) throws SQLException {
         boolean res = false;
