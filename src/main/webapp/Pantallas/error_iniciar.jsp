@@ -60,8 +60,8 @@
         <p class="texto">LA CUENTA A LA QUE SE INTENTA ACCEDER NO EXISTE</p>
         <img src="img/error.png" alt="" class="tick">
             	
-        <a href="menu_principal.jsp">
-  			<button class="boton-personalizado">MENÚ PRINCIPAL</button>
+        <a href="iniciar_sesion.jsp">
+  			<button class="boton-personalizado">VOLVER</button>
 		</a>			
 	</div>
   </body>
