@@ -5,6 +5,43 @@
 <html>
 <head>
     <title>Resultados de la Búsqueda</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #819165;
+        }
+        h1 {
+            margin-left: 0%;
+            margin-top: 5%;
+            position: relative;
+            text-align: center;
+            font-family: 'Imprint MT Shadow';
+            font-size: 90px;
+            font-style: italic;
+            color: white;
+        }
+        .resultado {
+            margin-top: 20px;
+            margin-left: 20%;
+            width: 60%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #333;
+            overflow: hidden; /* Asegura que el contenedor abarque el contenido, incluida la imagen */
+            display: flex; /* Utiliza flexbox para disposición flexible */
+        }
+        .texto-resultados {
+            flex-grow: 1; /* Permite que el texto ocupe el espacio restante */
+        }
+        .imagen-libro {
+            max-width: 100px; /* Ajusta el tamaño máximo de la imagen según tus necesidades */
+            max-height: 100px; /* Ajusta la altura máxima según tus necesidades */
+            margin-left: 20px; /* Ajusta el margen izquierdo según tus necesidades */
+        }
+    </style>
 </head>
 <body>
 
@@ -18,17 +55,22 @@
             if (elemento instanceof LibroVO) {
                 LibroVO libro = (LibroVO) elemento;
                 %>
-                <div>
-                    <p>Libro: <%= libro.getTitulo() %></p>
-                    <!-- Agrega más campos del libro según sea necesario -->
+                <div class="resultado">
+                    <div class="texto-resultados">
+                        <p>Libro: <%= libro.getTitulo() %></p>
+                        <!-- Agrega más campos del libro según sea necesario -->
+                    </div>
+                    <img class="imagen-libro" src="<%= request.getContextPath() %>/img/<%= libro.getNombreImagen() %>" alt="Imagen del libro">
                 </div>
                 <%
             } else if (elemento instanceof PersonaVO) {
                 PersonaVO persona = (PersonaVO) elemento;
                 %>
-                <div>
-                    <p>Persona: <%= persona.getNombreUsuario() %></p>
-                    <!-- Agrega más campos de la persona según sea necesario -->
+                <div class="resultado">
+                    <div class="texto-resultados">
+                        <p>Persona: <%= persona.getNombreUsuario() %></p>
+                        <!-- Agrega más campos de la persona según sea necesario -->
+                    </div>
                 </div>
                 <%
             }

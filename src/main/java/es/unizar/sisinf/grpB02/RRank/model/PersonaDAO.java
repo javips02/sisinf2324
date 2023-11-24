@@ -186,28 +186,38 @@ public class PersonaDAO {
      	    if (conn == null) {
      	        return null;
      	    }
-         	String queryEscritores = "SELECT *\n"
-         			+ "FROM persona\n"
-         			+ "WHERE nombreUsuario = ? IN (SELECT nombreUsuario FROM escribe);\n";
+     	    
+         	String queryEscritores = "SELECT nombreusuario FROM escribe WHERE nombreusuario=? ;\n";
         	PreparedStatement escritoresStmt = conn.prepareStatement(queryEscritores);
         	escritoresStmt.setString(1, nom);
          	ResultSet nombreUsuarioResultSet = escritoresStmt.executeQuery();
-
-	        while (nombreUsuarioResultSet.next()) {
-	            String nombreUsuario = nombreUsuarioResultSet.getString("nombreUsuario");
-	            String contraseña = nombreUsuarioResultSet.getString("contraseña");
-	            String correoE = nombreUsuarioResultSet.getString("correoE");
-	            int puntosLectura = nombreUsuarioResultSet.getInt("puntosLectura");
-	            int seguidores = nombreUsuarioResultSet.getInt("seguidores");
-	
-	            // Crear un objeto PersonaVO
-	            PersonaVO persona = new PersonaVO(nombreUsuario, contraseña, correoE);
-	            persona.setPuntosLectura(puntosLectura);
-	            persona.setSeguidores(seguidores);
-	
-	            // Agregar a la lista, Set se encargará de no permitir duplicados
-	            personasSet.add(persona);
-	        }
+         	
+         	String queryUsuarios = "SELECT * FROM persona WHERE nombreusuario = ? ;\n";
+         	
+         	while (nombreUsuarioResultSet.next()) {
+         		PreparedStatement userStmt = conn.prepareStatement(queryUsuarios);
+            	userStmt.setString(1, nombreUsuarioResultSet.getString("nombreusuario"));
+             	ResultSet userSet = userStmt.executeQuery();
+         	
+		        while (userSet.next()) {
+		            String nombreUsuario = userSet.getString("nombreusuario");
+		            String contraseña = userSet.getString("contraseña");
+		            String correoE = userSet.getString("correoE");
+		            
+		            System.out.println("Nombre de usuario: " + nombreUsuario);
+		            System.out.println("Contraseña: " + contraseña);
+		            System.out.println("Correo electrónico: " + correoE);
+		
+		            // Crear un objeto PersonaVO
+		            PersonaVO persona = new PersonaVO(nombreUsuario, contraseña, correoE);
+		
+		            // Agregar a la lista, Set se encargará de no permitir duplicados
+		            personasSet.add(persona);
+		            System.out.println("Persona agregada: " + persona);
+		        }
+		       
+         	}
+         	 personasSet.add(new PersonaVO("Checkpoint PersonaDAO", "hellegao", "hellegao"));
     	 } catch (SQLException e) {
      	    // Manejar la excepción de SQL según tus necesidades
      	    e.printStackTrace();
@@ -224,6 +234,64 @@ public class PersonaDAO {
      	}
     	 return personasSet;
    }
+    
+    
+    
+//    
+//    public Set<PersonaVO> buscarEscritores(String nom) {
+//        Set<PersonaVO> personasSet = new HashSet<>();
+//        try (Connection conn = PoolConnectionManager.getConnection()) {
+//            if (conn == null) {
+//                return null;
+//            }
+//
+//            String queryEscritores = "SELECT nombreusuario FROM escribe WHERE nombreusuario=?;";
+//            try (PreparedStatement escritoresStmt = conn.prepareStatement(queryEscritores)) {
+//                escritoresStmt.setString(1, nom);
+//                try (ResultSet nombreUsuarioResultSet = escritoresStmt.executeQuery()) {
+//
+//                    String queryUsuarios = "SELECT * FROM persona WHERE nombreusuario = ?;";
+//                    while (nombreUsuarioResultSet.next()) {
+//                        try (Connection connUsuarios = PoolConnectionManager.getConnection()) {
+//                            if (connUsuarios != null) {
+//                                try (PreparedStatement userStmt = connUsuarios.prepareStatement(queryUsuarios)) {
+//                                    userStmt.setString(1, nombreUsuarioResultSet.getString("nombreusuario"));
+//                                    try (ResultSet userSet = userStmt.executeQuery()) {
+//                                        while (userSet.next()) {
+//                                        	 String nombreUsuario = userSet.getString("nombreusuario");
+//                         		            String contraseña = userSet.getString("contraseña");
+//                         		            String correoE = userSet.getString("correoE");
+//                         		            
+//                         		            System.out.println("Nombre de usuario: " + nombreUsuario);
+//                         		            System.out.println("Contraseña: " + contraseña);
+//                         		            System.out.println("Correo electrónico: " + correoE);
+//                         		
+//                         		            // Crear un objeto PersonaVO
+//                         		            PersonaVO persona = new PersonaVO(nombreUsuario, contraseña, correoE);
+//                         		
+//                         		            // Agregar a la lista, Set se encargará de no permitir duplicados
+//                         		            personasSet.add(persona);
+//                         		            System.out.println("Persona agregada: " + persona);
+//                                        }
+//                                    }
+//                                }
+//                                connUsuarios.close();
+//                            }
+//                        }
+//                    }
+//                }
+//                personasSet.add(new PersonaVO("Checkpoint PersonaDAO", "hellegao", "hellegao"));
+//            }
+//            if (conn != null) {
+//                conn.close();
+//            }
+//        } catch (SQLException e) {
+//            // Manejar la excepción de SQL según tus necesidades
+//            e.printStackTrace();
+//        }
+//        return personasSet;
+//    }
+
 }
 
 

@@ -19,8 +19,8 @@ public class BusquedaFacade {
 		//BuscarLibros
 		LibroDAO libro = new LibroDAO();
 		List<LibroVO> listaLibros = new ArrayList<>();
-		listaLibros.addAll(libro.BuscarLibros(consulta));
-		listaLibros.add(new LibroVO("ISBNFALSO", "TituloArtificial","img/abeto.png",0));
+//		listaLibros.addAll(libro.BuscarLibros(consulta));
+		listaLibros.add(new LibroVO("ISBNFALSO", "TituloArtificial","laodisea.jpeg",0));
 		
 		//BuscarPersonas (escritores)
 		PersonaDAO pers = new PersonaDAO();

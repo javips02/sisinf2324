@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import es.unizar.sisinf.grpB02.RRank.model.BusquedaFacade;
@@ -30,7 +31,7 @@ public class busquedaServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		  String busqueda = request.getParameter("busqueda");
-		  List<Object> listaCompleta = null; 
+		  List<Object> listaCompleta = null;
 		  BusquedaFacade bus = new BusquedaFacade();
 		  listaCompleta = bus.listarTodoSinFiltros(busqueda);
 		  
