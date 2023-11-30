@@ -1,0 +1,4 @@
+ROOT.war
+Borrar context
+docker run --user root sisinf/tomcat:latest
+

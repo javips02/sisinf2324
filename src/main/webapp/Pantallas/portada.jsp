@@ -151,7 +151,7 @@
 			<div class="titulo">
 	    		<p>ReaderRank</p>
 			</div>
-    		<a href="crear_cuenta.jsp">
+    		<a href="Pantallas/crear_cuenta.jsp">
   				<button class="boton-personalizado">¡ADÉNTRATE EN NUESTRO MUNDO!</button>
 			</a>
     		<div class = "cuadroRedes">

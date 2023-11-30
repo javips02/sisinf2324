@@ -14,6 +14,7 @@ import es.unizar.sisinf.grpB02.RRank.model.LibroVO;
 /**
  * Servlet implementation class ItemLibroServlet
  */
+@WebServlet("/ItemLibroServlet")
 public class ItemLibroServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
