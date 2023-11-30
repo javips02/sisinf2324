@@ -1,6 +1,6 @@
-# FROM bitnami/tomcat:9.0.38
-FROM tomcat:9.0.38
+#FROM bitnami/tomcat:9.0.38
 
+FROM bitnami/tomcat:10.1
 # Permite contraseñas en blanco (solo para desarrollo)
 ENV ALLOW_EMPTY_PASSWORD=yes
 
