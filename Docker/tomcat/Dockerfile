@@ -1,5 +1,9 @@
-FROM bitnami/tomcat:9.0.38
-MAINTAINER Javi
+# FROM bitnami/tomcat:9.0.38
+FROM tomcat:9.0.38
+
+# Permite contraseñas en blanco (solo para desarrollo)
+ENV ALLOW_EMPTY_PASSWORD=yes
+
 ADD *.jar /opt/bitnami/tomcat/lib/
 ADD context.xml /opt/bitnami/tomcat/conf/
 ADD server.xml /opt/bitnami/tomcat/conf/
