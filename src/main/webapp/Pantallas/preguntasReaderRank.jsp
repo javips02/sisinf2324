@@ -281,8 +281,8 @@
         </div>
         
         <div class="preguntas">
-            <p class="boton-personalizado3">Pregunta número 1 de Reader Rank</p>
-            <p class="boton-recompensa">Máx. 2</p>
+            <p class="boton-personalizado3"> ${p1} </p>
+            <p class="boton-recompensa">Máx. 5</p>
             <img src="img/Gold_Star.png" alt="" class="star">
         </div>
         
@@ -292,7 +292,7 @@
         
         <div class="preguntas3">
             <p class="boton-personalizado3">Pregunta número 2 de Reader Rank</p>
-            <p class="boton-recompensa">Máx. 2</p>
+            <p class="boton-recompensa">Máx. 5</p>
             <img src="img/Gold_Star.png" alt="" class="star">
         </div>
         
@@ -302,7 +302,7 @@
         
         <div class="preguntas5">
             <p class="boton-personalizado3">Pregunta número 3 de Reader Rank</p>
-            <p class="boton-recompensa">Máx. 2</p>
+            <p class="boton-recompensa">Máx. 5</p>
             <img src="img/Gold_Star.png" alt="" class="star">
         </div>
         

@@ -47,7 +47,7 @@
         	display: flex;
             
             align-items: center; /* Centra verticalmente */
-        	background-image: url('img/libros.jpg');
+        	background-image: url("Pantallas/img/libros.jpg");
         }
         /* Pseudoelemento para aplicar el filtro */
         .right::before {
@@ -160,19 +160,19 @@
 	    		</div>
 	    		<div class="filaDeCirculos">
 				    <div class="circuloRedes">
-				    	<img src="img/u13.png" alt="">
+				    	<img src="Pantallas/img/u13.png" alt="">
 				    </div>
 				    <div class="circuloRedes">
-				    	<img src="img/u14.png" alt="">
+				    	<img src="Pantallas/img/u14.png" alt="">
 				    </div>
 				    <div class="circuloRedes">
-				    	<img src="img/u15.png" alt="">
+				    	<img src="Pantallas/img/u15.png" alt="">
 				    </div>
 				    <div class="circuloRedes">
-				    	<img src="img/u16.png" alt="">
+				    	<img src="Pantallas/img/u16.png" alt="">
 				    </div>
 				    <div class="circuloRedes">
-				    	<img src="img/u17.png" alt="">
+				    	<img src="Pantallas/img/u17.png" alt="">
 				    </div>
 				</div>
    			</div>

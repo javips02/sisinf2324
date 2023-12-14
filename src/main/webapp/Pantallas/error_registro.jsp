@@ -58,9 +58,9 @@
 	<div class = "container">
         <p class="titulo">ReaderRank</p>
         <p class="texto">NO HEMOS PODIDO CREAR TU CUENTA</p>
-        <img src="img/error.png" alt="" class="tick">
+        <img src="Pantallas/img/error.png" alt="" class="tick">
             	
-        <a href="crear_cuenta.jsp">
+        <a href="Pantallas/crear_cuenta.jsp">
   			<button class="boton-personalizado">VOLVER</button>
 		</a>			
 	</div>

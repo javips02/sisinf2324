@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 //Importamos los ficheros de conexion
 import es.unizar.sisinf.grpB02.RRank.db.ConnectionManager;
@@ -77,5 +79,39 @@ public class ClasificaDAO {
 		    ConnectionManager.releaseConnection(conn);
 		}
 	    return res;
+    }
+    
+    public List<ClasificaVO> mostrarClas(String titulo) {
+    	List<ClasificaVO> resultados = new ArrayList<>();
+        
+        try {
+            System.out.println("---- 1 ----");            // Establecemos la conexión
+            Connection conn = ConnectionManager.getConnection();
+            String consulta = "SELECT * FROM clasifica WHERE liga = ?";
+            PreparedStatement nombreUsuarioStmt = conn.prepareStatement(consulta);
+
+            nombreUsuarioStmt.setString(1, titulo);
+            ResultSet nombreUsuarioResultSet = nombreUsuarioStmt.executeQuery();
+
+            while (nombreUsuarioResultSet.next()) {
+                ClasificaVO clas = new ClasificaVO(
+                    nombreUsuarioResultSet.getString("liga"),
+                    nombreUsuarioResultSet.getString("nombreUsuario")
+                );
+                resultados.add(clas);
+            }
+
+            // Liberar recursos
+            nombreUsuarioStmt.close();
+            nombreUsuarioResultSet.close();
+            ConnectionManager.releaseConnection(conn);
+        } catch (SQLException sqlE) {
+            sqlE.printStackTrace();
+            return resultados;
+        } catch (Exception e) {
+            e.printStackTrace(System.err);
+            return resultados;
+        }
+        return resultados;
     }
 }

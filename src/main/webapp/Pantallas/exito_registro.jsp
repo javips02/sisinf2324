@@ -59,9 +59,9 @@
         <p class="titulo">ReaderRank</p>
         <p class="texto">¡ENHORABUENA, YA ESTÁS REGISTRADO!</p>
         <img src="img/u194.png" alt="" class="tick">
-            	
-        <a href="menu_principal.jsp">
-  			<button class="boton-personalizado">MENÚ PRINCIPAL</button>
+        
+        <a href="iniciar_sesion.jsp">
+  			<button class="boton-personalizado">INICIAR SESIÓN</button>
 		</a>			
 	</div>
   </body>

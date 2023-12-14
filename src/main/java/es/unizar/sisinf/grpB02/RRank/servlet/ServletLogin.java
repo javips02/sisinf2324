@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/ServletLogin")
 public class ServletLogin extends HttpServlet {
@@ -27,18 +28,22 @@ public class ServletLogin extends HttpServlet {
             // Set the error message as a request attribute
             request.setAttribute("mensajeErrorLogin", "El usuario " + usuario + " no existe o la contraseña es incorrecta");
             // Forward to the error page instead of using sendRedirect
-            request.getRequestDispatcher("Pantallas/Error.html").forward(request, response);
+            request.getRequestDispatcher("Pantallas/error_iniciar.jsp").forward(request, response);
             return; // Return to avoid further processing
-        }
-
+        } 
+ 
         if (exitoso) {
+        	// If the login is successful, store the usuario in the session
+            HttpSession session = request.getSession(true);
+            session.setAttribute("usuario", usuario);
+            
             // If the login is successful, redirect to menu_principal.jsp
             response.sendRedirect("Pantallas/menu_principal.jsp");
             return;
         } else {
             // If the login fails, redirect to the error page with the error message
             request.setAttribute("mensajeErrorLogin", "El usuario " + usuario + " no existe o la contraseña es incorrecta");
-            request.getRequestDispatcher("Pantallas/Error.html").forward(request, response);
+            request.getRequestDispatcher("Pantallas/error_iniciar.jsp").forward(request, response);
         }
     }
 }

@@ -200,8 +200,18 @@
         
         <div class="subtitulo2">
             <p>PREGUNTAS READER RANK:</p>
-            <p class="cuadrado-verde"></p>
+            
+            <form id="formPregRR" action="${pageContext.request.contextPath}/PreguntasServlet" method="get">
+		        <input type="hidden" name="preguntasLibro" value="Preguntas">
+		        <a href="#" onclick="document.getElementById('formPregRR').submit()"></a>
+		    </form>
+		    
+            <p class="cuadrado-verde" onClick="preguntas()"></p>
         </div>
+        
+        
+        
+        
         
         <div class="subtitulo3">
             <p>PREGUNTAS DEL ESCRITOR:</p>
@@ -209,15 +219,15 @@
         </div>
         
         <div class="texto">
-            <p>Máximo 20</p>
+            <p>Máximo 15</p>
+<!--             <img src="img/Gold_Star.png" alt="" class="star"> -->
             <img src="img/Gold_Star.png" alt="" class="star">
-            <img src="img/Gold_Star.png" alt="" class="star" onclick="irItemLibro()">
         </div>
         
         <div class="texto2">
             <p>Máximo 100</p>
+<!--             <img src="img/Gold_Star.png" alt="" class="star2"> -->
             <img src="img/Gold_Star.png" alt="" class="star2">
-            <img src="img/Gold_Star.png" alt="" class="star2" onclick="irItemLibro()">
         </div>
         
         
@@ -247,6 +257,10 @@
 
 	    function irItemLibro() {
 	        window.location.href = 'item_libro.jsp';
+	    }
+	    
+	    function preguntas() {
+	        window.location.href = 'preguntasReaderRank.jsp';
 	    }
     </script>
   </body>

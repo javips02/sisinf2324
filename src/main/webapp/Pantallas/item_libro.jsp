@@ -75,8 +75,8 @@
             cursor: pointer;
             margin-left: 2%;
             margin-right: 3%;
-            width: 6%;
-            height: 25%;
+            width: 85%;
+            height: 85%;
             filter: invert(1); /* Configura el brillo al 0% para que la imagen se vea completamente blanca */
         }
         .persona:hover {
@@ -180,7 +180,7 @@
 		.list_button{
 			display: flex;
 			align-items: center;
-			gap: 1em;
+/* 			gap: 1em; */
 			width: 70%;
 			margin: 0 auto;
 		}
@@ -190,7 +190,8 @@
 		}
 	     
 	    .list_arrow{
-	    	margin-left: auto;
+/* 	    	margin-left: 0%; */
+ 	    	margin-left: auto; 
 	    	transition: transform .3s;
 	    	width: 15%;
 	    }
@@ -220,37 +221,48 @@
 	    	width: 12%;
 	    	margin-left: 45%;
 	    }
+	    .cuadrado-negro {
+            background-color: #000; /* Color de fondo negro */
+            color: #fff; /* Color de texto blanco */
+            width: 200px; /* Ancho del cuadrado */
+            height: 200px; /* Altura del cuadrado */
+            display: flex; /* Permite centrar contenido vertical y horizontalmente */
+            justify-content: center; /* Centra horizontalmente */
+            align-items: center; /* Centra verticalmente */
+            text-align: center; /* Centra el texto */
+        }
+        
     </style>
   </head>
   <body>
    <div id="menu" class="menu-lateral">
    		<div class="contenedor_flecha">
-	        <img src="img/u36.svg" alt="" class="flecha" onclick="cerrarMenu()">
+	        <img src="Pantallas/img/u36.svg" alt="" class="flecha" onclick="cerrarMenu()">
 	    </div>
 	    <nav class="nav">
 	    	<ul>
 	    		<li>
 	    			<div class="list_button list_button--click">
 	    				<a href="#">IMPRESCINDIBLES</a>
-	    				<img src="img/bx-chevron-right.svg" class="list_arrow">
+	    				<img src="Pantallas/img/bx-chevron-right.svg" class="list_arrow">
 	    			</div>
 	    			<ul class="list_show">
     				<li class="list_inside">
-	    					<form id="formLaOdisea" action="ItemLibroServlet" method="get">
+	    					<form id="formLaOdisea" action="${pageContext.request.contextPath}/ItemLibroServlet" method="get">
 						        <input type="hidden" name="nombreLibro" value="La Odisea">
-						        <a href="#" onclick="document.getElementById('formLaOdisea').submit()">La Odisea/a>
+						        <a href="#" onclick="document.getElementById('formLaOdisea').submit()">La Odisea</a>
 						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<form id="formDonQuijote" action="ItemLibroServlet" method="get">
+	    					<form id="formDonQuijote" action="${pageContext.request.contextPath}/ItemLibroServlet" method="get">
 						        <input type="hidden" name="nombreLibro" value="Don Quijote">
 						        <a href="#" onclick="document.getElementById('formDonQuijote').submit()">Don Quijote</a>
 						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<form id="formSinsajo" action="ItemLibroServlet" method="get">
+	    					<form id="formSinsajo" action="${pageContext.request.contextPath}/ItemLibroServlet" method="get">
 						        <input type="hidden" name="nombreLibro" value="Sinsajo">
-						        <a href="#" onclick="document.getElementById('formSinsajo').submit()">Sinsajo/a>
+						        <a href="#" onclick="document.getElementById('formSinsajo').submit()">Sinsajo</a>
 						    </form>
 	    				</li>
 	    			</ul>
@@ -258,59 +270,77 @@
 	    		<li>
 	    			<div class="list_button list_button--click">
 	    				<a href="#">NOVEDADES</a>
-	    				<img src="img/bx-chevron-right.svg" class="list_arrow">
+	    				<img src="Pantallas/img/bx-chevron-right.svg" class="list_arrow">
 	    			</div>
 	    			<ul class="list_show">
 	    				<li class="list_inside">
-	    					<form id="formReinasdeLeyenda" action="ItemLibroServlet" method="get">
+	    					<form id="formReinasdeLeyenda" action="${pageContext.request.contextPath}/ItemLibroServlet" method="get">
 						        <input type="hidden" name="nombreLibro" value="Reinas de Leyenda">
 						        <a href="#" onclick="document.getElementById('formReinasdeLeyenda').submit()">Reinas de Leyenda</a>
 						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<form id="formMalditaRoma" action="ItemLibroServlet" method="get">
+	    					<form id="formMalditaRoma" action="${pageContext.request.contextPath}/ItemLibroServlet" method="get">
 						        <input type="hidden" name="nombreLibro" value="Maldita Roma">
 						        <a href="#" onclick="document.getElementById('formMalditaRoma').submit()">Maldita Roma</a>
 						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<form id="formSegundaOportunidad" action="ItemLibroServlet" method="get">
+	    					<form id="formSegundaOportunidad" action="${pageContext.request.contextPath}/ItemLibroServlet" method="get">
 						        <input type="hidden" name="nombreLibro" value="Segunda Oportunidad">
 						        <a href="#" onclick="document.getElementById('formSegundaOportunidad').submit()">Segunda Oportunidad</a>
 						    </form>
 	    				</li>
 	    			</ul>
 	    		</li>
+	    		
 	    		<li>
 	    			<div class="list_button list_button--click">
 	    				<a href="#">RANKING</a>
-	    				<img src="img/bx-chevron-right.svg" class="list_arrow">
+	    				<img src="Pantallas/img/bx-chevron-right.svg" class="list_arrow">
 	    			</div>
 	    			<ul class="list_show">
 	    				<li class="list_inside">
-	    					<a href="#" onclick="irRankB()">Liga Bonsái</a>
+	    					<form id="formLigaBonsai" action="${pageContext.request.contextPath}/RankingServletB" method="get">
+						        <input type="hidden" name="nombreRanking" value="Bonsai">
+						        <a href="#" onclick="document.getElementById('formLigaBonsai').submit()">Liga Bonsái</a>
+						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<a href="#" onclick="irRankR()">Liga Roble</a>
+	    					<form id="formLigaRoble" action="${pageContext.request.contextPath}/RankingServletR" method="get">
+						        <input type="hidden" name="nombreRanking" value="Roble">
+						        <a href="#" onclick="document.getElementById('formLigaRoble').submit()">Liga Roble</a>
+						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<a href="#" onclick="irRankA()">Liga Abeto</a>
+	    					<form id="formLigaAbeto" action="${pageContext.request.contextPath}/RankingServletA" method="get">
+						        <input type="hidden" name="nombreRanking" value="Abeto">
+						        <a href="#" onclick="document.getElementById('formLigaAbeto').submit()">Liga Abeto</a>
+						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<a href="#" onclick="irRankC()">Liga Cactus</a>
+	    					<form id="formLigaCactus" action="${pageContext.request.contextPath}/RankingServletC" method="get">
+						        <input type="hidden" name="nombreRanking" value="Cactus">
+						        <a href="#" onclick="document.getElementById('formLigaCactus').submit()">Liga Cactus</a>
+						    </form>
 	    				</li>
 	    			</ul>
 	    		</li>
+	    		
 	    	</ul>
 	    </nav>
 	</div>
     <div class="container">
         <div class="fila">
-            <img src="img/u24.svg" alt="" class="tresRayas" onclick="abrirMenu()">
+            <img src="Pantallas/img/u24.svg" alt="" class="tresRayas" onclick="abrirMenu()">
             <p class="titulo">ReaderRank</p>
-            <img src="img/u27.svg" alt="" id="miCampo2" class="lupa">
+            <img src="Pantallas/img/u27.svg" alt="" id="miCampo2" class="lupa">
             <input type="text" class="campo1" id="miCampo" placeholder="BUSCAR">   
-            <img src="img/bx-male.svg" alt="" class="persona" onclick="irPerfil()">
+            <form id="formPerfil" action="${pageContext.request.contextPath}/PerfilServlet" method="get">
+			    <input type="submit" style="display: none;" /> <!-- Este input invisible se utiliza para enviar el formulario mediante JavaScript -->
+			    <img src="${pageContext.request.contextPath}/Pantallas/img/bx-male.svg" alt="" class="persona" onclick="submitForm()">
+			</form>
+			
         </div>
             
         <div class="bienvenida">
@@ -320,8 +350,14 @@
         <div class="texto">
         	<p>${descripcion}</p>
         </div>
-        <img src="img/${nombreImagen}" alt="" class="fotito">
-
+        <img src="Pantallas/img/${nombreImagen}" alt="" class="fotito">
+		
+		<div class="cuadrado-negro">
+		
+        	<a href="Pantallas/responder_preguntas.jsp" style="text-decoration: none; color: inherit;" >IR A PREGUNTAS</a>
+    	</div>
+		
+		
     </div>
     <script>
     
@@ -351,7 +387,9 @@
     			menu.style.height = height+"px";
     		})
     	});
-    	
+    	function submitForm() {
+            document.getElementById('formPerfil').submit();
+        }
 	    function cerrarMenu() {
 	        document.getElementById('menu').style.width = '0%';
 	    }
@@ -361,7 +399,11 @@
 	    }
 
 	    function irPerfil() {
-	        window.location.href = 'perfil.jsp';
+	        window.location.href = 'Pantallas/perfil.jsp';
+	    }
+	    
+	    function irPreg() {
+	        window.location.href = 'Pantallas/responder_preguntas.jsp';
 	    }
 	    
 	    function irItem(libro) {
@@ -369,19 +411,19 @@
 	    }
 	    
 	    function irRankB() {
-	        window.location.href = 'rankingB.jsp';
+	        window.location.href = 'Pantallas/rankingB.jsp';
 	    }
 	    
 	    function irRankA() {
-	        window.location.href = 'rankingA.jsp';
+	        window.location.href = 'Pantallas/rankingA.jsp';
 	    }
 	    
 	    function irRankR() {
-	        window.location.href = 'rankingR.jsp';
+	        window.location.href = 'Pantallas/rankingR.jsp';
 	    }
 	    
 	    function irRankC() {
-	        window.location.href = 'rankingC.jsp';
+	        window.location.href = 'Pantallas/rankingC.jsp';
 	    }
     </script>
   </body>

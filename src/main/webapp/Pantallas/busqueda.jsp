@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>
+<%@ page import="es.unizar.sisinf.grpB02.RRank.model.LibroVO" %>
+<%@ page import="es.unizar.sisinf.grpB02.RRank.model.PersonaVO" %>
 <html>
   <head>
     <title>ReaderRank</title>
@@ -60,10 +63,10 @@
         }
         .persona{
             cursor: pointer;
-            margin-left: 15%;
-            margin-right: 1%;
-            width: 6%;
-            height: 25%;
+            margin-left: 45%;
+            margin-right: 0%;
+            width: 55%;
+            height: 55%;
             filter: invert(1); /* Configura el brillo al 0% para que la imagen se vea completamente blanca */
         }
         .persona:hover {
@@ -102,7 +105,7 @@
         .cruz{
             cursor: pointer;
             margin-left: 0%;
-            margin-right: 5%;
+            margin-right: 3%;
             width: 7%;
             height: 30%;
             filter: invert(1); /* Configura el brillo al 0% para que la imagen se vea completamente blanca */
@@ -126,6 +129,29 @@
         	font-style: bold;
         	color: white;
         }
+        .resultado {
+            margin-top: 20px;
+            margin-left: 20%;
+            width: 60%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #333;
+            overflow: hidden; /* Asegura que el contenedor abarque el contenido, incluida la imagen */
+            display: flex; /* Utiliza flexbox para disposición flexible */
+        }
+        .texto-resultados {
+            flex-grow: 1; /* Permite que el texto ocupe el espacio restante */
+        }
+        .imagen-libro {
+            max-width: 100px; /* Ajusta el tamaño máximo de la imagen según tus necesidades */
+            max-height: 100px; /* Ajusta la altura máxima según tus necesidades */
+            margin-left: 20px; /* Ajusta el margen izquierdo según tus necesidades */
+            width: auto; /* Permite que el ancho se ajuste automáticamente al tamaño máximo */
+    		height: auto; /* Permite que la altura se ajuste automáticamente al tamaño máximo */
+            
+        }
 		
 		
     </style>
@@ -133,11 +159,15 @@
    <title>Busqueda en ReaderRank</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>    
   <body>
-  	
+  	<%@ include file="menuHamburguesa.jsp" %>
+  	<img src="${pageContext.request.contextPath}/Pantallas/img/u24.svg" alt="" class="tresRayas" onclick="abrirMenu()">
 	<div class = "container">
 		<div class="fila">
             <p class="titulo">ReaderRank</p>
-            <img src="img/bx-male.svg" alt="" class="persona" onclick="irPerfil()">
+            <form id="formPerfil" action="${pageContext.request.contextPath}/PerfilServlet" method="get">
+			    <input type="submit" style="display: none;" /> <!-- Este input invisible se utiliza para enviar el formulario mediante JavaScript -->
+			    <img src="${pageContext.request.contextPath}/Pantallas/img/bx-male.svg" alt="" class="persona" onclick="submitForm()">
+			</form>
             <img src="img/bx-x.svg" alt="" class="cruz" onclick="volverMenu()">
         </div>
 		<%
@@ -148,97 +178,43 @@
         <!-- <button type="submit">Buscar</button> -->
     </form>
      <p class="linea-blanca"></p>
-    	<div class="texto" id="searchResults"></div>
-    	<!-- <div class="lupa">
-    		 <img src="u27.svg">
-		</div> -->
-		
-		<!-- 		CUADROS Y LIBROS DE LA HOJA DE BÚSQUEDA	 -->
-		<!--<div class="libro1">
-    		<p class="titulo3">La Odisea</p>
-    		<p class="titulo32">Homero</p>
-		</div>
-		
-		<div class="libro2">
-    		<p class="titulo4">Homero</p>
-    		<img src="" alt="" class="">
-		</div>
-		
-		<div class="libro3">
-    		<p class="titulo5">El italiano</p>
-    		<p class="titulo52">Arturo Pérez-Reverte</p>
-    		<img src="" alt="" class="">
-		</div>
-		
-		<div class="libro4">
-    		<p class="titulo6">1984</p>
-    		<p class="titulo62">George Orwell</p>
-    		<img src="" alt="" class="">
-		</div>
-		
-		<div class="cuadrado-verde"></div>
-		<img src="Imagenes Libros/LaOdiseaHomero.png" alt="" class="img1">
-		
-		<div class="cuadrado-verde2"></div>
-		<img src="Imagenes Libros/ElItalianoArturoPR.png" alt="" class="img3">
-		
-		<div class="cuadrado-verde3"></div>
-		<img src="Imagenes Libros/1984GeorgeOrwell.jpg" alt="" class="img4">
-		
-		<div class="circulo-verde"></div>
-		<img src="Imagenes Libros/Homero.png" alt="" class="img2"> -->
-		<div id="resultadosBusqueda"></div>
-		
-		
-				
-	</div>
-	<script>
-		function searchFunction() {
-	        var input = document.getElementById("searchInput").value;
-	        if (input === "") {
-	            document.getElementById("searchResults").innerHTML = "";
-	            return;
-	        }
-	
-	        $.ajax({
-	            type: 'POST',
-	            url: 'searchResults.jsp',
-	            data: { query: input },
-	            success: function(response) {
-	                document.getElementById("searchResults").innerHTML = response;
-	            }
-	        });
-	    }
-		
-		function realizarBusqueda(terminoBusqueda) {
-	        if (terminoBusqueda.length === 0) {
-	            document.getElementById('resultadosBusqueda').innerHTML = ""; // Limpiar resultados si el campo está vacío
-	        } else {
-	            // Realizar petición al servidor para buscar en la base de datos
-	            // Se puede usar AJAX para llamar a un servlet que maneje la búsqueda
-	
-	            // Ejemplo con jQuery
-	            $.ajax({
-	                type: 'POST',
-	                url: 'BuscarDatosServlet', // Reemplaza con la URL correcta de tu servlet
-	                data: { busqueda: terminoBusqueda },
-	                success: function (data) {
-	                    // Actualizar el div con los resultados de la búsqueda
-	                    document.getElementById('resultadosBusqueda').innerHTML = data;
-	                },
-	                error: function (error) {
-	                    console.log('Error en la búsqueda: ', error);
-	                }
-	            });
-	        }
-	    }
-	    function irPerfil() {
-	        window.location.href = 'perfil.jsp';
-	    }
-	
-	    function volverMenu() {
-	        window.location.href = 'menu_principal.jsp';
-	    }
-	</script>
+ 	
+ 	
+ 	<h1 class="campo1"><br><br>Resultados de la Búsqueda</h1>
+
+<%
+    List<Object> listaCompleta = (List<Object>) request.getAttribute("listaCompleta");
+
+    if (listaCompleta != null && !listaCompleta.isEmpty()) {
+        for (Object elemento : listaCompleta) {
+            if (elemento instanceof LibroVO) {
+                LibroVO libro = (LibroVO) elemento;
+                %>
+                <div class="resultado">
+                    <div class="texto-resultados">
+                        <p>Libro: <%= libro.getTitulo() %></p>
+                        <!-- Agrega más campos del libro según sea necesario -->
+                    </div>
+                    <img class="imagen-libro" src="Pantallas/img/<%=libro.getNombreImagen()%>" alt="Imagen del libro">
+                </div>
+                <%
+            } else if (elemento instanceof PersonaVO) {
+                PersonaVO persona = (PersonaVO) elemento;
+                %>
+                <div class="resultado">
+                    <div class="texto-resultados">
+                        <p>Persona: <%= persona.getNombreUsuario() %></p>
+                        <!-- Agrega más campos de la persona según sea necesario -->
+                    </div>
+                </div>
+                <%
+            }
+        }
+    } else {
+        %>
+        <p>No se encontraron resultados.</p>
+        <%
+    }
+%>
   </body>
 </html>

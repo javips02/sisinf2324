@@ -6,6 +6,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 
 import es.unizar.sisinf.grpB02.RRank.model.LibroDAO;
@@ -33,7 +35,7 @@ public class ItemLibroServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String nombreLibro = request.getParameter("nombreLibro");
 		boolean exitoso = false;
-		 try {
+		try {
 	            // Crea una instancia de LibroDAO y obtén el libro por su nombre
 	            LibroDAO libroDAO = new LibroDAO();
 	            LibroVO libro = libroDAO.mostrarLibro(nombreLibro);
@@ -47,9 +49,11 @@ public class ItemLibroServlet extends HttpServlet {
 	                request.setAttribute("nombreImagen", libro.getNombreImagen());
 	                request.setAttribute("editorial", libro.getEditorial());
 	                request.setAttribute("autor", libro.getAutor());
-
+ 
+	    
+	                
 	                // Redirecciona a item_libro.jsp
-	                RequestDispatcher dispatcher = request.getRequestDispatcher("item_libro.jsp");
+	                RequestDispatcher dispatcher = request.getRequestDispatcher("Pantallas/item_libro.jsp");
 	                dispatcher.forward(request, response);
 	            } else {
 	                // Manejo si el libro no se encuentra
@@ -65,6 +69,11 @@ public class ItemLibroServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String ISBN = request.getParameter("ISBN"); 
+		
+		HttpSession session = request.getSession(true);
+        session.setAttribute("isbn", ISBN);
+		
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import es.unizar.sisinf.grpB02.RRank.db.ConnectionManager;
 import es.unizar.sisinf.grpB02.RRank.db.PoolConnectionManager;
 
 // Clase DAO para la gestión de personas
@@ -235,7 +237,41 @@ public class PersonaDAO {
     	 return personasSet;
    }
     
-    
+    public PersonaVO mostrarPersona(String user) {
+    	PersonaVO persona = null;
+    	PersonaVO personaVacia = new PersonaVO("","","");
+        
+        try {
+            System.out.println("---- 1 ----");            // Establecemos la conexión
+            Connection conn = ConnectionManager.getConnection();
+            String consulta = "SELECT * FROM persona WHERE nombreusuario = ?";
+            PreparedStatement nombreUsuarioStmt = conn.prepareStatement(consulta);
+
+            nombreUsuarioStmt.setString(1, user);
+            ResultSet nombreUsuarioResultSet = nombreUsuarioStmt.executeQuery();
+
+            if (nombreUsuarioResultSet.next()) {
+                // Crea un objeto LibroVO con los datos obtenidos de la base de datos 
+            	persona = new PersonaVO(
+                    nombreUsuarioResultSet.getString("nombreusuario"),
+                    nombreUsuarioResultSet.getString("contraseña"),
+                    nombreUsuarioResultSet.getString("correoe")
+                );
+            }
+
+            // Liberar recursos
+            nombreUsuarioStmt.close();
+            nombreUsuarioResultSet.close();
+            ConnectionManager.releaseConnection(conn);
+        } catch (SQLException sqlE) {
+            sqlE.printStackTrace();
+            return personaVacia;
+        } catch (Exception e) {
+            e.printStackTrace(System.err);
+            return personaVacia;
+        }
+        return persona != null ? persona : personaVacia;
+    }
     
 //    
 //    public Set<PersonaVO> buscarEscritores(String nom) {

@@ -173,7 +173,7 @@
 			  <button class="botones" id="crear-cuenta">CREAR CUENTA</button>
 			</div>
 			<form method="post" action="${pageContext.request.contextPath}/ServletLogin">
-				<input type="text" name="usuarioLogin" class="campo1" placeholder="Usuario / Correo electrónico">
+				<input type="text" name="usuarioLogin" class="campo1" placeholder="Usuario">
 			    <input type="password" name="contrasenaLogin" class="campo1" placeholder="Contraseña">
 			    <input type="submit" class="boton-personalizado" value="INICIAR SESIÓN">
 			</form>

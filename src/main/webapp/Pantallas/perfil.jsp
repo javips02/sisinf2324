@@ -8,7 +8,7 @@
             margin: 0;
         }
         .titulo{
-             margin-right: 24%; 
+            margin-right: 20%; 
             margin-left: 0%;
             position: relative;
             text-align: center;
@@ -289,6 +289,14 @@
             margin-top: -2.2%;
             margin-left: 20%;
         }
+        .texto5{
+            font-family: 'Poppins SemiBold';
+            font-size: 30px;
+            color: white;
+            font-style: bold;
+            margin-top: -18%;
+            margin-left: 60%;
+        }
         .linea-blanca { 
  			border: none; /* Elimina el borde por defecto del hr */
  			border-top: 6px solid #ACC08B; /* Establece un borde superior de 2 píxeles de ancho y color blanco */ 
@@ -306,7 +314,7 @@
     </style>
   </head>
   <body>
-   <div id="menu" class="menu-lateral">
+    <div id="menu" class="menu-lateral">
    		<div class="contenedor_flecha">
 	        <img src="img/u36.svg" alt="" class="flecha" onclick="cerrarMenu()">
 	    </div>
@@ -319,39 +327,22 @@
 	    			</div>
 	    			<ul class="list_show">
     				<li class="list_inside">
-	    					<a href="#">El Italiano</a>
+	    					<form id="formLaOdisea" action="${pageContext.request.contextPath}/ItemLibroServlet" method="get">
+						        <input type="hidden" name="nombreLibro" value="La Odisea">
+						        <a href="#" onclick="document.getElementById('formLaOdisea').submit()">La Odisea</a>
+						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<a href="#">La Celestina</a>
+	    					<form id="formDonQuijote" action="${pageContext.request.contextPath}/ItemLibroServlet" method="get">
+						        <input type="hidden" name="nombreLibro" value="Don Quijote">
+						        <a href="#" onclick="document.getElementById('formDonQuijote').submit()">Don Quijote</a>
+						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<a href="#">1984</a>
-	    				</li>
-	    				<li class="list_inside">
-	    					<a href="#">La Encrucijada Mundial</a>
-	    				</li>
-	    			</ul>
-	    		</li>
-	    		<li>
-	    			<div class="list_button list_button--click">
-	    				<a href="#">GÉNEROS</a>
-	    				<img src="img/bx-chevron-right.svg" class="list_arrow">
-	    			</div>
-	    			<ul class="list_show">
-	    				<li class="list_inside">
-	    					<a href="#">Aventura</a>
-	    				</li>
-	    				<li class="list_inside">
-	    					<a href="#">Ciencias</a>
-	    				</li>
-	    				<li class="list_inside">
-	    					<a href="#">Humanidades</a>
-	    				</li>
-	    				<li class="list_inside">
-	    					<a href="#">Juvenil</a>
-	    				</li>
-	    				<li class="list_inside">
-	    					<a href="#">Infantil</a>
+	    					<form id="formSinsajo" action="${pageContext.request.contextPath}/ItemLibroServlet" method="get">
+						        <input type="hidden" name="nombreLibro" value="Sinsajo">
+						        <a href="#" onclick="document.getElementById('formSinsajo').submit()">Sinsajo</a>
+						    </form>
 	    				</li>
 	    			</ul>
 	    		</li>
@@ -362,19 +353,26 @@
 	    			</div>
 	    			<ul class="list_show">
 	    				<li class="list_inside">
-	    					<a href="#">Emperador de Roma</a>
+	    					<form id="formReinasdeLeyenda" action="${pageContext.request.contextPath}/ItemLibroServlet" method="get">
+						        <input type="hidden" name="nombreLibro" value="Reinas de Leyenda">
+						        <a href="#" onclick="document.getElementById('formReinasdeLeyenda').submit()">Reinas de Leyenda</a>
+						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<a href="#">Le dedico mi silencio</a>
+	    					<form id="formMalditaRoma" action="${pageContext.request.contextPath}/ItemLibroServlet" method="get">
+						        <input type="hidden" name="nombreLibro" value="Maldita Roma">
+						        <a href="#" onclick="document.getElementById('formMalditaRoma').submit()">Maldita Roma</a>
+						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<a href="#">Cola de lagartija</a>
-	    				</li>
-	    				<li class="list_inside">
-	    					<a href="#">Los idus de enero</a>
+	    					<form id="formSegundaOportunidad" action="${pageContext.request.contextPath}/ItemLibroServlet" method="get">
+						        <input type="hidden" name="nombreLibro" value="Segunda Oportunidad">
+						        <a href="#" onclick="document.getElementById('formSegundaOportunidad').submit()">Segunda Oportunidad</a>
+						    </form>
 	    				</li>
 	    			</ul>
 	    		</li>
+	    		
 	    		<li>
 	    			<div class="list_button list_button--click">
 	    				<a href="#">RANKING</a>
@@ -382,27 +380,40 @@
 	    			</div>
 	    			<ul class="list_show">
 	    				<li class="list_inside">
-	    					<a href="#">Liga Bonsái</a>
+	    					<form id="formLigaBonsai" action="${pageContext.request.contextPath}/RankingServletB" method="get">
+						        <input type="hidden" name="nombreRanking" value="Bonsai">
+						        <a href="#" onclick="document.getElementById('formLigaBonsai').submit()">Liga Bonsái</a>
+						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<a href="#">Liga Roble</a>
+	    					<form id="formLigaRoble" action="${pageContext.request.contextPath}/RankingServletR" method="get">
+						        <input type="hidden" name="nombreRanking" value="Roble">
+						        <a href="#" onclick="document.getElementById('formLigaRoble').submit()">Liga Roble</a>
+						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<a href="#">Liga Abeto</a>
+	    					<form id="formLigaAbeto" action="${pageContext.request.contextPath}/RankingServletA" method="get">
+						        <input type="hidden" name="nombreRanking" value="Abeto">
+						        <a href="#" onclick="document.getElementById('formLigaAbeto').submit()">Liga Abeto</a>
+						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<a href="#">Liga Cactus</a>
+	    					<form id="formLigaCactus" action="${pageContext.request.contextPath}/RankingServletC" method="get">
+						        <input type="hidden" name="nombreRanking" value="Cactus">
+						        <a href="#" onclick="document.getElementById('formLigaCactus').submit()">Liga Cactus</a>
+						    </form>
 	    				</li>
 	    			</ul>
 	    		</li>
+	    		
 	    	</ul>
 	    </nav>
 	</div>
     <div class="container">
         <div class="fila">
-            <img src="img/u24.svg" alt="" class="tresRayas" onclick="abrirMenu()">
+            <img src="Pantallas/img/u24.svg" alt="" class="tresRayas" onclick="abrirMenu()">
             <p class="titulo">PERFIL DE USUARIO</p>
-            <img src="img/bx-x.svg" alt="" class="cruz" onclick="volverMenu()">
+            <img src="Pantallas/img/bx-x.svg" alt="" class="cruz" onclick="volverMenu()">
         </div>
             
         <div class="circulos">
@@ -417,12 +428,19 @@
         </div>
         
         <div class="texto4">
-            <p>Nombre y Apellidos:</p>
-            <p>Pseudónimo:</p>
-            <p>Dirección de correo electrónico:</p>
-            <p>Fecha de nacimiento:</p>
-            <p>Libros que lee al año:</p>
-       	 </div>
+		    <p>Nombre de usuario:</p>
+		    <p>Dirección de correo electrónico:</p>
+		    <p>Puntos de Lectura:</p>
+		    <p>Seguidores del usuario:</p>
+		</div>
+		
+		<div class="texto5">
+		    <p><%= session.getAttribute("usuario") %></p>
+		    <p>${ce}</p>
+		    <p>${pl}</p>
+		    <p>${s}</p>
+		</div>
+
     </div>
     <script>
     
@@ -448,8 +466,25 @@
 	    }
 
 	    function volverMenu() {
-	        window.location.href = 'menu_principal.jsp';
+	        window.location.href = 'Pantallas/menu_principal.jsp';
 	    }
+	    
+	    function irRankB() {
+	        window.location.href = 'Pantallas/rankingB.jsp';
+	    }
+	    
+	    function irRankA() {
+	        window.location.href = 'Pantallas/rankingA.jsp';
+	    }
+	    
+	    function irRankR() {
+	        window.location.href = 'Pantallas/rankingR.jsp';
+	    }
+	    
+	    function irRankC() {
+	        window.location.href = 'Pantallas/rankingC.jsp';
+	    }
+	    
     </script>
   </body>
 </html>

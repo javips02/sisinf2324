@@ -17,10 +17,14 @@ public class PoolConnectionManager { //Le pide la conexion a tomcat
 			Context envCtx = (Context) initCtx.lookup("java:comp/env");
 
 			System.out.println(envCtx.toString());
+			System.out.println("********************* 1 **********************");
 			DataSource ds = (DataSource) envCtx.lookup("jdbc/sisinfDB"); //Nombre de recurso en la app
+			System.out.println("********************* 2 **********************");
 			System.out.println(ds.toString());
 
+			System.out.println("********************* 3 **********************");
 			Connection conn = ds.getConnection();
+			System.out.println("********************* 4 **********************");
 			return conn;
 		} catch (Exception e) {
 			e.printStackTrace();

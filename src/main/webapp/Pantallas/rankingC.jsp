@@ -9,6 +9,7 @@
         }
         .titulo{
             margin-left: 30%;
+            margin-right: 5%;
             position: relative;
             text-align: center;
             font-family: 'Poppins SemiBold';
@@ -71,9 +72,9 @@
         }
         .persona{
             cursor: pointer;
-            margin-left: 28%;
-            width: 6%;
-            height: 25%;
+            margin-left: 95%;
+            width: 55%;
+            height: 55%;
             filter: invert(1); /* Configura el brillo al 0% para que la imagen se vea completamente blanca */
         }
         .persona:hover {
@@ -204,8 +205,8 @@
 	    }
 	    .cruz{
             cursor: pointer;
-            margin-left: 0%;
-            margin-right: 5%;
+            margin-left: 5%;
+            margin-right: 0%;
             width: 7%;
             height: 30%;
             filter: invert(1); /* Configura el brillo al 0% para que la imagen se vea completamente blanca */
@@ -220,15 +221,15 @@
             align-items: center;
         }
         .marcador{
-        	margin-top: 5%;
-        	margin-left: 5%;
+        	margin-top: 15%;
+        	margin-left: 20%;
             display: flex; /* Utiliza flexbox para alinear las imágenes en fila */
             align-items: center;
         }
         .cuadrado {
-        	  margin-left: 0%;
-		      width: 150%;
-		      height: 100%;
+        	  margin-left: 4.5%;
+		      width: 40%;
+		      height: 800%;
 		      background-color: #d5f1cc;
 		      border-radius: 25px; /* Ajusta este valor para cambiar el grado de redondeo */
 		      box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.1);
@@ -236,10 +237,10 @@
 		}
 	    .arrowl{
             cursor: pointer;
-            margin-left: 0%;
+            margin-left: -7%;
             margin-right: 0%;
-            width: 70%;
-            height: 30%;
+            width: 150%;
+            height: 300%;
             filter: invert(1); /* Configura el brillo al 0% para que la imagen se vea completamente blanca */
             transition: background-color 0.6s; /* Agrega una transición para suavizar el cambio */   
         }
@@ -251,8 +252,8 @@
             cursor: pointer;
             margin-left: 0%;
             margin-right: 5%;
-            width: 70%;
-            height: 30%;
+            width: 150%;
+            height: 300%;
             filter: invert(1); /* Configura el brillo al 0% para que la imagen se vea completamente blanca */
             transition: background-color 0.6s; /* Agrega una transición para suavizar el cambio */     
         }
@@ -261,7 +262,7 @@
             background-color: #d5f1cc;
         }
         .cactus{
-        	margin-left: -12%;
+        	margin-left: -12.5%;
         	margin-top: 0%;
         	width: 10%;
             height: 90%;
@@ -366,7 +367,7 @@
 	    .c5 {
 	      margin-top: -1.5%;
           margin-left: 2%;
-	      width: 4%;
+	      width: 4.5%;
 	      height: 70%;
 	      background-color: #fff; /* Fondo gris */
 	      border-radius: 50%; /* Hace que el elemento sea un círculo */
@@ -374,32 +375,32 @@
 	      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
 	    }
 	    .persona1 {
-        	margin-top: -20%;
-        	margin-left: 29%;
+        	margin-top: -11%;
+        	margin-left: 35.3%;
             display: flex; /* Utiliza flexbox para alinear las imágenes en fila */
             align-items: center;
 	    }
 	    .persona2 {
         	margin-top: 0%;
-        	margin-left: 29%;
+        	margin-left: 35%;
             display: flex; /* Utiliza flexbox para alinear las imágenes en fila */
             align-items: center;
 	    }
 	    .persona3 {
         	margin-top: 0%;
-        	margin-left: 29%;
+        	margin-left: 35%;
             display: flex; /* Utiliza flexbox para alinear las imágenes en fila */
             align-items: center;
 	    }
 	    .persona4 {
         	margin-top: 0%;
-        	margin-left: 29%;
+        	margin-left: 35%;
             display: flex; /* Utiliza flexbox para alinear las imágenes en fila */
             align-items: center;
 	    }
 	    .persona5 {
         	margin-top: 0%;
-        	margin-left: 29%;
+        	margin-left: 35%;
             display: flex; /* Utiliza flexbox para alinear las imágenes en fila */
             align-items: center;
 	    }
@@ -419,39 +420,22 @@
 	    			</div>
 	    			<ul class="list_show">
     				<li class="list_inside">
-	    					<a href="#">El Italiano</a>
+	    					<form id="formLaOdisea" action="${pageContext.request.contextPath}/ItemLibroServlet" method="get">
+						        <input type="hidden" name="nombreLibro" value="La Odisea">
+						        <a href="#" onclick="document.getElementById('formLaOdisea').submit()">La Odisea</a>
+						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<a href="#">La Celestina</a>
+	    					<form id="formDonQuijote" action="${pageContext.request.contextPath}/ItemLibroServlet" method="get">
+						        <input type="hidden" name="nombreLibro" value="Don Quijote">
+						        <a href="#" onclick="document.getElementById('formDonQuijote').submit()">Don Quijote</a>
+						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<a href="#">1984</a>
-	    				</li>
-	    				<li class="list_inside">
-	    					<a href="#">La Encrucijada Mundial</a>
-	    				</li>
-	    			</ul>
-	    		</li>
-	    		<li>
-	    			<div class="list_button list_button--click">
-	    				<a href="#">GÉNEROS</a>
-	    				<img src="img/bx-chevron-right.svg" class="list_arrow">
-	    			</div>
-	    			<ul class="list_show">
-	    				<li class="list_inside">
-	    					<a href="#">Aventura</a>
-	    				</li>
-	    				<li class="list_inside">
-	    					<a href="#">Ciencias</a>
-	    				</li>
-	    				<li class="list_inside">
-	    					<a href="#">Humanidades</a>
-	    				</li>
-	    				<li class="list_inside">
-	    					<a href="#">Juvenil</a>
-	    				</li>
-	    				<li class="list_inside">
-	    					<a href="#">Infantil</a>
+	    					<form id="formSinsajo" action="${pageContext.request.contextPath}/ItemLibroServlet" method="get">
+						        <input type="hidden" name="nombreLibro" value="Sinsajo">
+						        <a href="#" onclick="document.getElementById('formSinsajo').submit()">Sinsajo</a>
+						    </form>
 	    				</li>
 	    			</ul>
 	    		</li>
@@ -462,19 +446,26 @@
 	    			</div>
 	    			<ul class="list_show">
 	    				<li class="list_inside">
-	    					<a href="#">Emperador de Roma</a>
+	    					<form id="formReinasdeLeyenda" action="${pageContext.request.contextPath}/ItemLibroServlet" method="get">
+						        <input type="hidden" name="nombreLibro" value="Reinas de Leyenda">
+						        <a href="#" onclick="document.getElementById('formReinasdeLeyenda').submit()">Reinas de Leyenda</a>
+						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<a href="#">Le dedico mi silencio</a>
+	    					<form id="formMalditaRoma" action="${pageContext.request.contextPath}/ItemLibroServlet" method="get">
+						        <input type="hidden" name="nombreLibro" value="Maldita Roma">
+						        <a href="#" onclick="document.getElementById('formMalditaRoma').submit()">Maldita Roma</a>
+						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<a href="#">Cola de lagartija</a>
-	    				</li>
-	    				<li class="list_inside">
-	    					<a href="#">Los idus de enero</a>
+	    					<form id="formSegundaOportunidad" action="${pageContext.request.contextPath}/ItemLibroServlet" method="get">
+						        <input type="hidden" name="nombreLibro" value="Segunda Oportunidad">
+						        <a href="#" onclick="document.getElementById('formSegundaOportunidad').submit()">Segunda Oportunidad</a>
+						    </form>
 	    				</li>
 	    			</ul>
 	    		</li>
+	    		
 	    		<li>
 	    			<div class="list_button list_button--click">
 	    				<a href="#">RANKING</a>
@@ -482,86 +473,122 @@
 	    			</div>
 	    			<ul class="list_show">
 	    				<li class="list_inside">
-	    					<a href="#">Liga Bonsái</a>
+	    					<form id="formLigaBonsai" action="${pageContext.request.contextPath}/RankingServletB" method="get">
+						        <input type="hidden" name="nombreRanking" value="Bonsai">
+						        <a href="#" onclick="document.getElementById('formLigaBonsai').submit()">Liga Bonsái</a>
+						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<a href="#">Liga Roble</a>
+	    					<form id="formLigaRoble" action="${pageContext.request.contextPath}/RankingServletR" method="get">
+						        <input type="hidden" name="nombreRanking" value="Roble">
+						        <a href="#" onclick="document.getElementById('formLigaRoble').submit()">Liga Roble</a>
+						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<a href="#">Liga Abeto</a>
+	    					<form id="formLigaAbeto" action="${pageContext.request.contextPath}/RankingServletA" method="get">
+						        <input type="hidden" name="nombreRanking" value="Abeto">
+						        <a href="#" onclick="document.getElementById('formLigaAbeto').submit()">Liga Abeto</a>
+						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<a href="#">Liga Cactus</a>
+	    					<form id="formLigaCactus" action="${pageContext.request.contextPath}/RankingServletC" method="get">
+						        <input type="hidden" name="nombreRanking" value="Cactus">
+						        <a href="#" onclick="document.getElementById('formLigaCactus').submit()">Liga Cactus</a>
+						    </form>
 	    				</li>
 	    			</ul>
 	    		</li>
+	    		
 	    	</ul>
 	    </nav>
 	</div>
     <div class="container">
         <div class="fila">
-            <img src="img/u24.svg" alt="" class="tresRayas" onclick="abrirMenu()">
+            <img src="Pantallas/img/u24.svg" alt="" class="tresRayas" onclick="abrirMenu()">
             <p class="titulo">RANKING</p>
-            <img src="img/bx-male.svg" alt="" class="persona" onclick="irPerfil()">
-            <img src="img/bx-x.svg" alt="" class="cruz" onclick="volverMenu()">
+            <form id="formPerfil" action="${pageContext.request.contextPath}/PerfilServlet" method="get">
+				    <input type="submit" style="display: none;" /> <!-- Este input invisible se utiliza para enviar el formulario mediante JavaScript -->
+				    <img src="${pageContext.request.contextPath}/Pantallas/img/bx-male.svg" alt="" class="persona" onclick="submitForm()">
+			</form>
+            <img src="Pantallas/img/bx-x.svg" alt="" class="cruz" onclick="volverMenu()">
         </div>
         
         <div class="liga1">
         	<p class="c1" onclick="ACactus()"></p>
-			<img src="img/cactus.png" alt="" class="cactus">
+			<img src="Pantallas/img/cactus.png" alt="" class="cactus">
         </div>
         
         <div class="liga2">
         	<p class="c2" onclick="AAbeto()"></p>
-			<img src="img/abeto.png" alt="" class="abeto">
+			<img src="Pantallas/img/abeto.png" alt="" class="abeto">
         </div>
         
         <div class="liga3">
         	<p class="c3" onclick="ARoble()"></p>
-			<img src="img/roble.png" alt="" class="roble">
+			<img src="Pantallas/img/roble.png" alt="" class="roble">
         </div>
         
          <div class="liga4"> 
          	<p class="c4" onclick="ABonsai()"></p> 
- 			<img src="img/bonsai.png" alt="" class="bonsai"> 
+ 			<img src="Pantallas/img/bonsai.png" alt="" class="bonsai"> 
          </div>
         
         
-         <div class="marcador"> 
-             <img src="img/arrow_left.svg" alt="" class="arrowl" onclick="left()"> 
-              <p class="cuadrado"></p>
-             <img src="img/arrow_right.svg" alt="" class="arrowr" onclick="right()"> 
-         </div>
+<!--          <div class="marcador">  -->
+<!--              <img src="Pantallas/img/arrow_left.svg" alt="" class="arrowl" onclick="left()">  -->
+<!--               <p class="cuadrado"></p> -->
+<!--              <img src="Pantallas/img/arrow_right.svg" alt="" class="arrowr" onclick="right()">  -->
+<!--          </div> -->
          
-         <div class="persona1"> 
+          <div class="marcador"> 
+		    
+		    <form id="formIBonsai" action="${pageContext.request.contextPath}/RankingServletB" method="get">
+		        <input type="hidden" name="nombreRanking" value="Bonsai">
+		    	<a href="#">
+		    		<img src="Pantallas/img/arrow_left.svg" alt="" class="arrowl" onclick="document.getElementById('formIBonsai').submit()">	
+		    	</a>
+		    </form>
+		    
+		    <p class="cuadrado"></p>
+		    
+		    <form id="formDAbeto" action="${pageContext.request.contextPath}/RankingServletA" method="get">
+		        <input type="hidden" name="nombreRanking" value="Abeto">
+		    	<a href="#">
+		    		<img src="Pantallas/img/arrow_right.svg" alt="" class="arrowr" onclick="document.getElementById('formDAbeto').submit()">	
+		    	</a>
+		    </form>
+		 </div> 
+         
+        <div class="persona1"> 
 			<p class="texto">1</p>
 			<p class="c5"></p>
-			<p class="texto">Jesús Lizama Pitinga</p>
+			<p class="texto">${clas1.nombreUsuario}</p>
          </div>
          
          <div class="persona2"> 
 			<p class="texto">2</p>
 			<p class="c5"></p>
-			<p class="texto">Jesús Lizama Pitinga</p>
+			<p class="texto">${clas2.nombreUsuario}</p>
          </div>
          
          <div class="persona3"> 
 			<p class="texto">3</p>
 			<p class="c5"></p>
-			<p class="texto">Jesús Lizama Pitinga</p>
+			<p class="texto">${clas3.nombreUsuario}</p>
          </div>
          
          <div class="persona4"> 
 			<p class="texto">4</p>
 			<p class="c5"></p>
-			<p class="texto">Jesús Lizama Pitinga</p>
+			<p class="texto">${clas4.nombreUsuario}</p>
          </div>
          
          <div class="persona5"> 
 			<p class="texto">5</p>
 			<p class="c5"></p>
-			<p class="texto">Jesús Lizama Pitinga</p>
+			<p class="texto">${clas5.nombreUsuario}</p>
          </div>
+
         
         
     </div>
@@ -579,7 +606,9 @@
 				menu.style.height = height+"px";
 			})
 		});
-		
+		function submitForm() {
+            document.getElementById('formPerfil').submit();
+        }
 	    function cerrarMenu() {
 	        document.getElementById('menu').style.width = '0%';
 	    }
@@ -593,21 +622,21 @@
 	    }
 	    
 	    function volverMenu() {
-	        window.location.href = 'menu_principal.jsp';
+	        window.location.href = 'Pantallas/menu_principal.jsp';
 	    }
 	    
 // 	    ARBOLES
-	    function ABonsai() {
-	        window.location.href = 'rankingB.jsp';
-	    }
+// 	    function ABonsai() {
+// 	        window.location.href = 'rankingB.jsp';
+// 	    }
 	    
-	    function AAbeto() {
-	        window.location.href = 'rankingA.jsp';
-	    }
+// 	    function AAbeto() {
+// 	        window.location.href = 'rankingA.jsp';
+// 	    }
 	    
-	    function ARoble() {
-	        window.location.href = 'rankingR.jsp';
-	    }
+// 	    function ARoble() {
+// 	        window.location.href = 'rankingR.jsp';
+// 	    }
 	    
 // 	    FLECHAS
 		function left() {

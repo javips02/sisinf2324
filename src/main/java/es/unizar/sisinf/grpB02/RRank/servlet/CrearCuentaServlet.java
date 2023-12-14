@@ -53,7 +53,7 @@ public class CrearCuentaServlet extends HttpServlet {
                 response.sendRedirect("Pantallas/exito_registro.jsp");
             } else {
                 // La persona no es válida, puedes redirigir a una página de error.
-                response.sendRedirect("Pantallas/Error.html");
+                response.sendRedirect("Pantallas/error_registro.jsp");
             }
             //LO QUE HAY DEBAJO DE RESPONSE.SENDREDIRECT NO SE EJECUTA!!!
             // Respuesta al cliente
@@ -66,11 +66,7 @@ public class CrearCuentaServlet extends HttpServlet {
         }
         else {
             // Respuesta en caso de campos vacíos
-            response.setContentType("text/html");
-            PrintWriter out = response.getWriter();
-            out.println("<html><body>");
-            out.println("<h2>Error: Nombre de usuario y contrasena son obligatorios</h2>");
-            out.println("</body></html>");
+            response.sendRedirect("Pantallas/campos_vacios.jsp");
         }
     }
 }

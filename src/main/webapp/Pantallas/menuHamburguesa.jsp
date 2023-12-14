@@ -1,14 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<html>
-  <head>
-    <title>ReaderRank</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>    
-    <style>
+<style>
         body {
             margin: 0;
         }
         .titulo{
-            margin-right: 5%;
+            margin-right: 0%;
+            margin-left: 5%;
             position: relative;
             text-align: center;
             font-family: 'Imprint MT Shadow';
@@ -19,21 +15,15 @@
         .bienvenida{
             position: relative;
             text-align: center;
+            margin-top: 10%;
             font-family: 'Bodoni MT Poster Compressed';
-            font-size: 90px;
+            font-size: 70px;
             color: white;
-            margin-top: -5%;
         }
         .texto{
-        	position: relative;
-         	margin-left: 10%; 
-     		margin-right: 10%;  
-        	text-align: center;
-        	text-align: justify;
             font-family: 'Poppins SemiBold';
-            font-size: 30px;
+            font-size: 35px;
             color: white;
-            margin-top: -5%;
         }
         .container{
             display: flex; /* Habilita flexbox */
@@ -41,29 +31,40 @@
             height: 100vh;
             background-repeat: no-repeat;
             background-size: cover;
-            background: #819165;
+            background-image: url('img/u22.png');
+        }
+        /* Pseudoelemento para aplicar el filtro */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5); /* Fondo negro semi transparente */
+            filter: brightness(40%); /* Ajusta el valor seg˙n tus preferencias (porcentaje) */
         }
         .boton-personalizado {
             background-color: #000; /* Color de fondo negro */
             color: #fff; /* Color de texto blanco */
             border: none; /* Sin borde */
             border-radius: 50px; /* Esquinas redondeadas */
-            padding: 10px 200px; /* Relleno interno para el bot√≥n */
-            font-size: 35px; /* Tama√±o de fuente */
+            padding: 10px 20px; /* Relleno interno para el botÛn */
+            font-size: 35px; /* TamaÒo de fuente */
             font-family: 'Poppins SemiBold';
-            cursor: pointer; /* Cambia el cursor al pasar el rat√≥n */
+            cursor: pointer; /* Cambia el cursor al pasar el ratÛn */
             margin-top: 10px;
             width: 60%;
         }
-        /* Cambio de color al pasar el rat√≥n por encima */
+        /* Cambio de color al pasar el ratÛn por encima */
         .boton-personalizado:hover {
-            background-color: #333; /* Nuevo color de fondo al pasar el rat√≥n */
+            background-color: #333; /* Nuevo color de fondo al pasar el ratÛn */
         }
         .tresRayas{
             cursor: pointer;
-            margin-left: 3%;
-            margin-right: 25%;
-            width: 7%;
+            margin-left: 5%;
+            margin-right: 20%;
+            width: 3%;
             height: 13%;
             filter: brightness(100%); /* Configura el brillo al 0% para que la imagen se vea completamente blanca */
         }
@@ -72,37 +73,42 @@
         }
         .persona{
             cursor: pointer;
-            margin-left: 2%;
-            margin-right: 3%;
-            width: 6%;
-            height: 25%;
+            margin-left: 0%;
+            margin-right: 1%;
+            margin-top: 5%;
+            width: 55%;
+            height: 55%;
             filter: invert(1); /* Configura el brillo al 0% para que la imagen se vea completamente blanca */
         }
         .persona:hover {
             filter: brightness(70%);
         }
         .lupa{
-            width: 3%;
-            height: 15%;
+            width: 2%;
+            margin-left: 8%;
+            height: 12%;
             filter: brightness(100%); /* Configura el brillo al 0% para que la imagen se vea completamente blanca */
+        }
+        .lupa:hover {
+            filter: brightness(70%);
         }
         .fila {
             margin-top: -35px;
-            display: flex; /* Utiliza flexbox para alinear las im√°genes en fila */
+            display: flex; /* Utiliza flexbox para alinear las im·genes en fila */
             align-items: center;
         }
         .campo1 {
-            margin-left: 10px;
-            margin-top: -10px;
+            margin-left: 1%;
+            margin-top: 0%;
             position: relative;
             background: transparent;
             color: white; /* Color de texto blanco */
             border: 2px solid white;
             border-radius: 50px; /* Esquinas redondeadas */
             padding: 5px 20px; /* Relleno interno para ajustar el ancho */
-            font-size: 35px; /* Tama√±o de fuente */
+            font-size: 30px; /* TamaÒo de fuente */
             font-family: 'Poppins SemiBold';
-            width: 60%; 
+            width: 20%; 
         }
         .campo1::placeholder {
             color: white; /* Color blanco para el texto del placeholder */
@@ -110,16 +116,16 @@
         .campo1:focus {
 		    outline: none; /* Asegura que el contorno de enfoque se elimine al hacer clic */
 		}
-        /* Estilo del men√∫ lateral */
+        /* Estilo del men˙ lateral */
         .menu-lateral {
             width: 0; /* Inicialmente oculto */
             height: 100%;
             position: fixed;
             top: 0;
             left: 0;
-            background-color: #ACC08B; /* Color de fondo del men√∫ */
+            background-color: #819165; /* Color de fondo del men˙ */
             overflow-x: hidden;
-            transition: 0.3s; /* Duraci√≥n de la animaci√≥n */
+            transition: 0.3s; /* DuraciÛn de la animaciÛn */
             z-index: 1;
         }
         .contenedor_flecha{
@@ -128,8 +134,8 @@
 		}
 		.flecha{
 			cursor: pointer;
-			margin-top: 50px;
-			margin-right: 50px;
+			margin-top: 5%;
+			margin-right: 5%;
 		}
 		.flecha:hover {
 		    filter: brightness(30%);
@@ -216,9 +222,8 @@
 		    overflow: hidden;
 	    }
     </style>
-  </head>
-  <body>
-   <div id="menu" class="menu-lateral">
+
+<div id="menu" class="menu-lateral">
    		<div class="contenedor_flecha">
 	        <img src="img/u36.svg" alt="" class="flecha" onclick="cerrarMenu()">
 	    </div>
@@ -276,6 +281,7 @@
 	    				</li>
 	    			</ul>
 	    		</li>
+	    		
 	    		<li>
 	    			<div class="list_button list_button--click">
 	    				<a href="#">RANKING</a>
@@ -283,52 +289,51 @@
 	    			</div>
 	    			<ul class="list_show">
 	    				<li class="list_inside">
-	    					<a href="#" onclick="irRankB()">Liga Bons√°i</a>
+	    					<form id="formLigaBonsai" action="${pageContext.request.contextPath}/RankingServletB" method="get">
+						        <input type="hidden" name="nombreRanking" value="Bonsai">
+						        <a href="#" onclick="document.getElementById('formLigaBonsai').submit()">Liga Bons·i</a>
+						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<a href="#" onclick="irRankR()">Liga Roble</a>
+	    					<form id="formLigaRoble" action="${pageContext.request.contextPath}/RankingServletR" method="get">
+						        <input type="hidden" name="nombreRanking" value="Roble">
+						        <a href="#" onclick="document.getElementById('formLigaRoble').submit()">Liga Roble</a>
+						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<a href="#" onclick="irRankA()">Liga Abeto</a>
+	    					<form id="formLigaAbeto" action="${pageContext.request.contextPath}/RankingServletA" method="get">
+						        <input type="hidden" name="nombreRanking" value="Abeto">
+						        <a href="#" onclick="document.getElementById('formLigaAbeto').submit()">Liga Abeto</a>
+						    </form>
 	    				</li>
 	    				<li class="list_inside">
-	    					<a href="#" onclick="irRankC()">Liga Cactus</a>
+	    					<form id="formLigaCactus" action="${pageContext.request.contextPath}/RankingServletC" method="get">
+						        <input type="hidden" name="nombreRanking" value="Cactus">
+						        <a href="#" onclick="document.getElementById('formLigaCactus').submit()">Liga Cactus</a>
+						    </form>
 	    				</li>
 	    			</ul>
 	    		</li>
+	    		
 	    	</ul>
 	    </nav>
 	</div>
-    <div class="container">
-        <div class="fila">
-            <img src="img/u24.svg" alt="" class="tresRayas" onclick="abrirMenu()">
-            <p class="titulo">ReaderRank</p>
-            <img src="img/u27.svg" alt="" id="miCampo2" class="lupa">
-            <input type="text" class="campo1" id="miCampo" placeholder="BUSCAR">   
-        </div>
-            
-        <div class="bienvenida">
-            <p>Homero</p>
-        </div>
-        <div class="texto">
-        	<p>Homero es el literato m√°s famoso de la √©poca arcaica, considerado el autor de dos de las obras m√°s importantes de la Literatura Universal: la Iliada y la Odisea. Alrededor de su vida existe un halo legendario, especul√°ndose incluso que no existi√≥.</p>
-        	<p>Obras del autor:</p>
-        </div>
-    </div>
+	
     <script>
     
 	    document.getElementById("miCampo").addEventListener("keypress", function(e) {
 	        if (e.key === "Enter") {
 	            var texto = document.getElementById("miCampo").value;
-	            window.location.href = "busqueda.jsp?busqueda=" + texto;
-	            // Esto redirigir√° a busqueda.jsp pasando el texto como par√°metro en la URL
+	            //window.location.href = "busqueda.jsp?busqueda=" + texto;
+	            window.location.href = "/readerRank/busquedaServlet?busqueda=" + texto;
+	            // Esto redirigir· a busqueda.jsp pasando el texto como par·metro en la URL
 	        }
 	    });
 	    
 	    document.getElementById("miCampo2").addEventListener("click", function() {
 	    	var texto = document.getElementById("miCampo").value;
-	        window.location.href = "busqueda.jsp?busqueda=" + texto;
-	        // Esto redirigir√° a busqueda.jsp pasando el texto como par√°metro en la URL
+	    	 window.location.href = "/readerRank/busquedaServlet?busqueda=" + texto;
+	        // Esto redirigir· a busqueda.jsp pasando el texto como par·metro en la URL
 	    });
 
     	let listElements = document.querySelectorAll('.list_button--click');
@@ -345,7 +350,7 @@
     	});
     	
     	function submitForm() {
-             document.getElementById('formPerfil').submit();
+            document.getElementById('formPerfil').submit();
         }
     	
 	    function cerrarMenu() {
@@ -379,6 +384,5 @@
 	    function irRankC() {
 	        window.location.href = 'rankingC.jsp';
 	    }
+	    
     </script>
-  </body>
-</html>

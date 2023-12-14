@@ -58,9 +58,9 @@
 	<div class = "container">
         <p class="titulo">ReaderRank</p>
         <p class="texto">LA CUENTA A LA QUE SE INTENTA ACCEDER NO EXISTE</p>
-        <img src="img/error.png" alt="" class="tick">
+        <img src="Pantallas/img/error.png" alt="" class="tick">
             	
-        <a href="iniciar_sesion.jsp">
+        <a href="Pantallas/iniciar_sesion.jsp">
   			<button class="boton-personalizado">VOLVER</button>
 		</a>			
 	</div>

@@ -39,7 +39,7 @@ public class busquedaServlet extends HttpServlet {
         request.setAttribute("listaCompleta", listaCompleta);
 
         // Redirigir a la página JSP para mostrar los resultados
-        RequestDispatcher dispatcher = request.getRequestDispatcher("Pantallas/ResultadosBusqueda.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("Pantallas/busqueda.jsp");
         dispatcher.forward(request, response);
 	}
 
